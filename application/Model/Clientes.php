@@ -6,7 +6,16 @@ use Mini\Core\Model;
 
 class Clientes extends Model {
 
-    private $ejemplo;
+    private $id;
+    private $nombres;
+    private $apellidos;
+    private $tipo_doc;
+    private $numero_doc;
+    private $direc;
+    private $tel;
+    private $cel;
+    private $estado;
+    private $id_ruta;
 
     public function __SET($attr, $valor){
         $this->$attr = $valor;
@@ -17,8 +26,62 @@ class Clientes extends Model {
     }
 
     public function listar(){
-        $sql = "SELECT * FROM cliente";
-        $stm = $this->db->prepare($sql);
+        $stm = $this->db->prepare("CALL Listar_clientes(?)");
+        $stm->bindParam(1,$this->nombres);
+        $stm->execute();
+        return $stm->fetchAll();
+    }
+
+    public function guardar(){
+        $stm = $this->db->prepare("CALL Guardar_cliente(?,?,?,?,?,?,?,?)");
+        $stm->bindParam(1,$this->nombre_empresa);
+        $stm->bindParam(2,$this->nombre_contacto);
+        $stm->bindParam(3,$this->tipo_doc);
+        $stm->bindParam(4,$this->numero_doc);
+        $stm->bindParam(5,$this->direc);
+        $stm->bindParam(6,$this->tel);
+        $stm->bindParam(7,$this->cel);
+        $stm->bindParam(8,$this->id_ruta);
+        return $stm->execute();
+    }
+
+    public function consultar_cliente(){
+        $stm = $this->db->prepare("CALL Consultar_cliente(?)");
+        $stm->bindParam(1,$this->id);
+        $stm->execute();
+        return $stm->fetch();
+    }
+
+    public function buscar_cliente(){
+        $stm = $this->db->prepare("CALL Buscar_cliente(?)");
+        $stm->bindParam(1,$this->numero_doc);
+        $stm->execute();
+        return $stm->fetchAll();
+    }
+
+    public function modificar(){
+        $stm = $this->db->prepare("CALL Modificar_proveedor(?,?,?,?,?,?,?,?,?)");
+        $stm->bindParam(1,$this->id);
+        $stm->bindParam(2,$this->nombres);
+        $stm->bindParam(3,$this->apellidos);
+        $stm->bindParam(4,$this->tipo_doc);
+        $stm->bindParam(5,$this->numero_doc);
+        $stm->bindParam(6,$this->direc);
+        $stm->bindParam(7,$this->tel);
+        $stm->bindParam(8,$this->cel);
+        $stm->bindParam(9,$this->id_ruta);
+        return $stm->execute();
+    }
+
+    public function cambiar_estado(){
+        $stm = $this->db->prepare("CALL Cambiar_estado_cliente(?,?)");
+        $stm->bindParam(1,$this->id);
+        $stm->bindParam(2,$this->estado);
+        return $stm->execute();
+    }
+
+    public function mostrar_clientes(){
+        $stm = $this->db->prepare("CALL Mostrar_clientes()");
         $stm->execute();
         return $stm->fetchAll();
     }

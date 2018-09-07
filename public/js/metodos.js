@@ -550,7 +550,7 @@ function cambiar_proveedor(consulta, consulta2) {
         });
 }
 
-//Usuarios
++//Usuarios
 function buscar_usuario(consulta) {
     $.ajax({
             url: uri + '/usuario/tabla',
@@ -617,6 +617,82 @@ function cambiar_usuario(consulta, consulta2) {
                 }
             } else {
                 mensaje = "Error al cambiar el estado del usuario";
+                ver_fail();
+            }
+        })
+        .fail(function () {
+            console.log("error");
+        });
+}
+
++//Clientes
+function buscar_cliente(consulta) {
+    $.ajax({
+            url: uri + '/cliente/tabla',
+            type: 'POST',
+            dataType: 'html',
+            data: {
+                nombre: consulta
+            },
+        })
+        .done(function (respuesta) {
+            $('#datos_cliente').html(respuesta);
+        })
+        .fail(function () {
+            console.log("error");
+        });
+}
+
+function editar_cliente(consulta) {
+    $.ajax({
+            url: uri + '/cliente/editar',
+            type: 'POST',
+            data: {
+                id: consulta
+            },
+        })
+        .done(function (respuesta) {
+            var contenido = jQuery.parseJSON(respuesta);
+            $('#id_cliente').val(contenido.id_cliente);
+            $('#nombres').val(contenido.nombres);
+            $('#apellidos').val(contenido.apellidos);
+            $('#tipo_doc').val(contenido.tipo_documento);
+            $('#num_doc').val(contenido.numero_documento);
+            $("#dc").val(contenido.direccion);
+            $("#tel").val(contenido.telefono);
+            $("#cel").val(contenido.celular);
+            $("#select_r").val(contenido.id_ruta);
+            buscar_cliente($('#nombres').val());
+        })
+        .fail(function () {
+            console.log("error");
+        });
+}
+
+function cambiar_cliente(consulta, consulta2) {
+    $.ajax({
+            url: uri + '/cliente/estado_cliente',
+            type: 'POST',
+            dataType: 'html',
+            data: {
+                id: consulta,
+                estado: consulta2
+            },
+        })
+        .done(function (respuesta) {
+            if (respuesta == "si") {
+                mensaje = "Estado del cliente cambiado correctamente";
+                ver_success();
+
+                var buscar = $('#nombres').val();
+
+                if (buscar != "") {
+                    buscar_cliente(buscar);
+                } else {
+                    buscar_cliente();
+                }
+            } else {
+                mensaje = "Error al cambiar el estado";
                 ver_fail();
             }
         })

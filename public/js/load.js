@@ -28,6 +28,9 @@ function traer() {
         });
     } else if ($('#carga').val() == "2") {
         $('#contenido').html("");
+        $('#contenido').load(uri + '/cliente/index', function () {
+            buscar_cliente();
+        });
 
     } else if ($('#carga').val() == "3") {
         $('#contenido').html("");
@@ -79,6 +82,9 @@ $(document).on('click', '#categorias', function () {
 
 $(document).on('click', '#clientes', function () {
     $('#contenido').html("");
+    $('#contenido').load(uri + '/cliente/index', function () {
+        buscar_cliente();
+    });
 });
 
 $(document).on('click', '#proveedores', function () {
