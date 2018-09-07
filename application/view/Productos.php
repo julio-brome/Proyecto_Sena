@@ -1,4 +1,3 @@
-<!--comentario de prueba para git-->
 <form id="crear_producto">
     <div id="informacion">
         <div id="botones">
