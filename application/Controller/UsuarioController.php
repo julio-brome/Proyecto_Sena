@@ -10,7 +10,7 @@ class UsuarioController {
     }
 
     public function tabla(){
-        $proveedor = new Usuario();
+        $usuario = new Usuario();
         $salida="";
 
         if(isset($_POST['nombres'])){
