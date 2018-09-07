@@ -625,7 +625,7 @@ function cambiar_usuario(consulta, consulta2) {
         });
 }
 
-+//Clientes
+//Clientes
 function buscar_cliente(consulta) {
     $.ajax({
             url: uri + '/cliente/tabla',
