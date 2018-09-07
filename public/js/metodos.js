@@ -550,7 +550,7 @@ function cambiar_proveedor(consulta, consulta2) {
         });
 }
 
-+//Usuarios
+//Usuarios
 function buscar_usuario(consulta) {
     $.ajax({
             url: uri + '/usuario/tabla',
