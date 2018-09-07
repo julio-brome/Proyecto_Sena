@@ -549,3 +549,78 @@ function cambiar_proveedor(consulta, consulta2) {
             console.log("error");
         });
 }
+
+//Usuarios
+function buscar_usuario(consulta) {
+    $.ajax({
+            url: uri + '/usuario/tabla',
+            type: 'POST',
+            dataType: 'html',
+            data: {
+                nombre: consulta
+            },
+        })
+        .done(function (respuesta) {
+            $('#datos_usuario').html(respuesta);
+        })
+        .fail(function () {
+            console.log("error");
+        });
+}
+
+function editar_usuario(consulta) {
+    $.ajax({
+            url: uri + '/usuario/editar',
+            type: 'POST',
+            data: {
+                id: consulta
+            },
+        })
+        .done(function (respuesta) {
+            var contenido = jQuery.parseJSON(respuesta);
+            $('#id_usuario').val(contenido.id_proveedor);
+            $('#nombres_us').val(contenido.nombres_usuario);
+            $('#nombre_con').val(contenido.apellidos_usuario);
+            $('#tipo_doc').val(contenido.tipo_documento);
+            $('#num_doc').val(contenido.numero_documento);
+            $("#rol").val(contenido.rol_usuario);
+            $("#us").val(contenido.usuario);
+            $("#cl").val(contenido.clave);
+            buscar_proveedor($('#nombres_us').val());
+        })
+        .fail(function () {
+            console.log("error");
+        });
+}
+
+function cambiar_usuario(consulta, consulta2) {
+    $.ajax({
+            url: uri + '/usuario/estado_usuario',
+            type: 'POST',
+            dataType: 'html',
+            data: {
+                id: consulta,
+                estado: consulta2
+            },
+        })
+        .done(function (respuesta) {
+            if (respuesta == "si") {
+                mensaje = "Estado del usuario cambiado correctamente";
+                ver_success();
+
+                var buscar = $('#nombres_us').val();
+
+                if (buscar != "") {
+                    buscar_usuario(buscar);
+                } else {
+                    buscar_usuario();
+                }
+            } else {
+                mensaje = "Error al cambiar el estado del usuario";
+                ver_fail();
+            }
+        })
+        .fail(function () {
+            console.log("error");
+        });
+}
