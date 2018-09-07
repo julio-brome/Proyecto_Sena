@@ -1,4 +1,5 @@
 <form id="crear_producto">
+   //app
     <div id="informacion">
         <div id="botones">
             <input type="button" value="Atras" id="atras_p">
