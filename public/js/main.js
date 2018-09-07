@@ -360,7 +360,6 @@ $(document).on('click', '#Estado_proveedor', function () {
     return false;
 });
 
-
 $(document).on('click', '#editar_proveedor', function () {
     editar_proveedor($(this).val());
     $('#guardar_proveedor').hide();
@@ -371,8 +370,37 @@ $(document).on('click', '#editar_proveedor', function () {
 $(document).on('click', '#cancelar_mod', function () {
     $('#modificar_proveedor').hide();
     $('#guardar_proveedor').show();
-    $('#registro_pre').trigger("reset");
     buscar_proveedor();
+    return false;
+});
+
+//Form clientes
+$(document).on('click', '#Estado_cliente', function () {
+    var valor = $(this).val();
+    var estado = $(this).html();
+    var cambio;
+
+    if (estado == "Inhabilitar") {
+        cambio = 0;
+    } else {
+        cambio = 1;
+    }
+    cambiar_cliente(valor, cambio);
+
+    return false;
+});
+
+$(document).on('click', '#editar_cliente', function () {
+    editar_cliente($(this).val());
+    $('#guardar_cliente').hide();
+    $('#modificar_cliente').show();
+    return false;
+});
+
+$(document).on('click', '#can_mod', function () {
+    $('#modificar_cliente').hide();
+    $('#guardar_cliente').show();
+    buscar_cliente();
     return false;
 });
 
