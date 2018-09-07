@@ -1,10 +1,8 @@
-<!--comentario de prueba para git-->
 <form id="crear_producto">
     <div id="informacion">
         <div id="botones">
             <input type="button" value="Atras" id="atras_p">
         </div>
-<!--comentario de prueba para git-->
         <h2 id="titulo">Productos</h2>
 
         <br>
