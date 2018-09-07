@@ -5,7 +5,7 @@ namespace Mini\Controller;
 use Mini\Model\Usuario;
 
 class UsuarioController {
-    
+    // comentario de prueba
     public function index (){
         require APP.'view/Usuarios.php';
     }
