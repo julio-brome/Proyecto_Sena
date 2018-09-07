@@ -4,8 +4,7 @@
 
         <br>
 
-        <label>Nombre Categoria : </label> <br>
-        <input id="nombre_c" type="text" autocomplete="off" required> <br>
+        <input id="nombre_c" type="text" autocomplete="off" placeholder="Nombre Categoria" required> <br>
 
         <input class="succes" id="guardar_c" type="button" value="Guardar">
         <input class="succes" id="modificar_c" type="button" value="Guardar Cambios">
