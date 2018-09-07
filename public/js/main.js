@@ -420,7 +420,6 @@ $(document).on('click', '#Estado_usuario', function () {
     return false;
 });
 
-
 $(document).on('click', '#editar_usuario', function () {
     editar_usuario($(this).val());
     $('#guardar_proveedor').hide();
