@@ -110,7 +110,7 @@ class UsuarioController {
             $_SESSION["RESPUESTA"] = "El usuario ya existe";
         }
 
-        $_SESSION['LOCAL']= "3";
+        $_SESSION['LOCAL']= "1";
         header("location: ".URL."Login/menu");
     }
 
