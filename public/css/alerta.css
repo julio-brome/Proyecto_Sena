@@ -1,0 +1,26 @@
+.popupunder{
+    width: 300px;
+	position:fixed;
+	top: 65px;
+	right: 5px;
+	z-index: 10;
+	border: 0;
+	padding: 20px;
+    display: none;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.popupunder.alert-success{
+    border: 1px solid #198b49;
+	background:#27AE60;
+	color:#fff;
+}
+
+.popupunder.alert-fail{
+    border: 1px solid #800606;
+	background:#a20909;
+	color:#fff;
+}

@@ -1,0 +1,136 @@
+#crear_producto,
+#crear_detalle,
+#modificar_c,
+#modificar_p,
+.alert,
+#modificar_proveedor {
+    display: none;
+}
+
+#consulta_cartera label {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+#botones {
+    float: right;
+}
+
+input[type=button],
+input[type=reset],
+input[type=submit],
+button {
+    border: none;
+    margin-bottom: 5px;
+    margin-top: 8px;
+}
+
+/* INPUT */
+input[type=text],
+input[type=number],
+input[type=tel],
+input[type=list],
+select {
+    background-size: 25%;
+    outline: none;
+    padding: 10px 15px;
+    color: black;
+    border: none;
+    border-bottom: 1px solid #b5b5b5;
+    border-radius: 2px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.succes {
+    background-color: seagreen;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+/* TABLA */
+/*.table-responsive {
+    max-height: 505px;
+}*/
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    margin: 30px auto;
+    border: 1px solid #434343;
+}
+
+table th {
+    background-color: #434343;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 15px;
+}
+
+#table-ver {
+    border: 1px solid red;
+}
+
+#table-ver th {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 15px;
+}
+
+table td {
+    color: black;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-bottom: 1px solid #d4d4d4;
+    cursor: pointer;
+}
+
+table tr:hover {
+    background-color: #d4d4d4;
+}
+
+table button {
+    border: none;
+    font-family: arial, sans-serif;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 600px) {
+
+    table {
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr:nth-of-type(2n) {
+        background-color: inherit;
+    }
+
+    tr td:first-child {
+        background: #434343;
+        font-weight: bold;
+        font-size: 1.3em;
+        color: white;
+    }
+
+    tbody td {
+        display: block;
+        text-align: center;
+    }
+
+    tbody td:before {
+        content: attr(data-th);
+        display: block;
+        text-align: center;
+    }
+}
