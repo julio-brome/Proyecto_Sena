@@ -578,7 +578,7 @@ function editar_usuario(consulta) {
         })
         .done(function (respuesta) {
             var contenido = jQuery.parseJSON(respuesta);
-            $('#id_usuario').val(contenido.id_proveedor);
+            $('#id_usuario').val(contenido.id_usuario);
             $('#nombres').val(contenido.nombres_usuario);
             $('#apellidos').val(contenido.apellidos_usuario);
             $('#tipo_doc').val(contenido.tipo_documento);
