@@ -1,7 +1,7 @@
 <form id="registro_pre" action="" method="post">
     <h2 id="titulo">Cliente</h2>
     <input type="hidden" id="id_cliente" name="id">
-    <input id="nombres" name="txtnombres" type="text" placeholder="Nombres" maxlength="20" autocomplete="off" required>
+    <input id="nombres_c" name="txtnombres" type="text" placeholder="Nombres" maxlength="20" autocomplete="off" required>
     <input id="apellidos" name="txtapellidos" type="text" placeholder="Apellidos" maxlength="20" autocomplete="off" required> <br>
     <select id="tipo_doc" name="txttipo_doc" required>
         <option value="">Seleccione tipo de documento</option>

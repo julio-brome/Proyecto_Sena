@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="<?= URL ?>/public/css/bootstrap-yeti.css">
     <link rel="stylesheet" href="<?= URL ?>/public/css/Login.css">
     <link rel="stylesheet" href="<?= URL ?>/public/css/alerta.css">
+    <link rel="stylesheet" href="<?= URL ?>/public/font-awesome/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -42,12 +44,12 @@
                                     <p class="text-danger">Introduce tu usuario.</p>
                                 </div>
 
-                                <div class="input-group" id="campo1"><span class="input-group-addon"><em class="fa fa-user" aria-hidden="true"></em></span>
+                                <div class="input-group" id="campo1"><span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
                                     <input type="text" name="usu" id="user" class="form-control form-login btn-block" placeholder="Usuario" autofocus />
                                 </div>
                                 <br>
                                 <div class="errores" id="mensaje2">
-                                    <p class="text-danger">Introduce tu contraeña.</p>
+                                    <p class="text-danger">Introduce tu contraseña.</p>
                                 </div>
                                 <div class="input-group" id="campo2">
                                     <span class="input-group-addon"><i class="fa fa-lock " aria-hidden="true"></i></span>

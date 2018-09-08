@@ -99,6 +99,28 @@ $(document).on('keyup', '#nombre_em', function () {
     }
 });
 
+//buscar cliente
+$(document).on('keyup', '#nombres_c', function () {
+    var valor = $('#nombres_c').val();
+
+    if (valor != "") {
+        buscar_cliente(valor);
+    } else {
+        buscar_cliente();
+    }
+});
+
+//buscar usuario
+$(document).on('keyup', '#nombres', function () {
+    var valor = $('#nombres').val();
+
+    if (valor != "") {
+        buscar_usuario(valor);
+    } else {
+        buscar_usuario();
+    }
+});
+
 //Buscar producto
 $(document).on('keyup', '#nombre_p', function () {
     var valor = $('#nombre_p').val();
