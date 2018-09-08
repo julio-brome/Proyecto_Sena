@@ -78,7 +78,7 @@ class UsuarioController {
                     ".$texto."
                 </td>
                 <td>
-                    <button id='editar_proveedor' value=".$value->id_usuario.">Modificar</button>
+                    <button id='editar_usuario' value=".$value->id_usuario.">Modificar</button>
                 </td>
                 <td>
                 <button style='background-color: ".$color." ;' id='Estado_usuario' value=".$value->id_usuario.">".$estados."</button>
@@ -125,7 +125,7 @@ class UsuarioController {
     }
 
     public function modificar (){
-        $usuario = new Proveedor();
+        $usuario = new Usuario();
         $usuario->__SET("id", $_POST['id']);
         $usuario->__SET("nombres_usuario", $_POST['txtnombres']);
         $usuario->__SET("apellidos_usuario", $_POST['txtapellidos']);
