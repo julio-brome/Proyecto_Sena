@@ -401,7 +401,6 @@ $(document).on('click', '#can_mod', function () {
     $('#modificar_cliente').hide();
     $('#guardar_cliente').show();
     buscar_cliente();
-    return false;
 });
 
 //Form usuarios

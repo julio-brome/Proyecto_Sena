@@ -654,12 +654,12 @@ function editar_cliente(consulta) {
         .done(function (respuesta) {
             var contenido = jQuery.parseJSON(respuesta);
             $('#id_cliente').val(contenido.id_cliente);
-            $('#nombres').val(contenido.nombres);
-            $('#apellidos').val(contenido.apellidos);
+            $('#nombres').val(contenido.nombres_cliente);
+            $('#apellidos').val(contenido.apellidos_cliente);
             $('#tipo_doc').val(contenido.tipo_documento);
             $('#num_doc').val(contenido.numero_documento);
             $("#dc").val(contenido.direccion);
-            $("#tel").val(contenido.telefono);
+            $("#cartera_dis").val(contenido.cartera);
             $("#cel").val(contenido.celular);
             $("#select_r").val(contenido.id_ruta);
             buscar_cliente($('#nombres').val());
@@ -695,6 +695,22 @@ function cambiar_cliente(consulta, consulta2) {
                 mensaje = "Error al cambiar el estado";
                 ver_fail();
             }
+        })
+        .fail(function () {
+            console.log("error");
+        });
+}
+
+//limpiar session
+function limpiar(){
+    $.ajax({
+            url: uri + '/login/limpiar',
+            type: 'POST',
+            dataType: 'html',
+            data: {},
+        })
+        .done(function (respuesta) {
+        console.log(respuesta);
         })
         .fail(function () {
             console.log("error");

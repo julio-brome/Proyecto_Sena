@@ -41,8 +41,8 @@ class ClienteController {
                 <th>Tipo documento</th>
                 <th>Numero documento</th>
                 <th>Direccion</th>
-                <th>Telefono</th>
                 <th>Celular</th>
+                <th>Ruta</th>
                 <th>Estado</th>
                 <th>
                 </th>
@@ -78,9 +78,6 @@ class ClienteController {
                     ".$value->direccion."
                 </td>
                 <td>
-                    ".$value->telefono."
-                </td>
-                <td>
                     ".$value->celular."
                 </td>
                 <td>
@@ -108,8 +105,8 @@ class ClienteController {
         $cliente->__SET("apellidos", $_POST['txtapellidos']);
         $cliente->__SET("tipo_doc", $_POST['txttipo_doc']);
         $cliente->__SET("numero_doc", $_POST['txtnumero_doc']);
+        $cliente->__SET("cartera", $_POST['cartera_dis']);
         $cliente->__SET("direc", $_POST['txtdc']);
-        $cliente->__SET("tel", $_POST['txttel']);
         $cliente->__SET("cel", $_POST['txtcel']);
         $cliente->__SET("id_ruta", $_POST['ide_r']);
         $consulta = $cliente->buscar_cliente();
@@ -124,7 +121,6 @@ class ClienteController {
         }
 
         $_SESSION['LOCAL']= "2";
-        header("location: ".URL."Login/menu");
     }
 
     public function editar(){

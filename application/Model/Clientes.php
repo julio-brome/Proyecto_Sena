@@ -12,10 +12,10 @@ class Clientes extends Model {
     private $tipo_doc;
     private $numero_doc;
     private $direc;
-    private $tel;
     private $cel;
     private $estado;
     private $id_ruta;
+    private $cartera;
 
     public function __SET($attr, $valor){
         $this->$attr = $valor;
@@ -34,12 +34,12 @@ class Clientes extends Model {
 
     public function guardar(){
         $stm = $this->db->prepare("CALL Guardar_cliente(?,?,?,?,?,?,?,?)");
-        $stm->bindParam(1,$this->nombre_empresa);
-        $stm->bindParam(2,$this->nombre_contacto);
+        $stm->bindParam(1,$this->nombres);
+        $stm->bindParam(2,$this->apellidos);
         $stm->bindParam(3,$this->tipo_doc);
         $stm->bindParam(4,$this->numero_doc);
-        $stm->bindParam(5,$this->direc);
-        $stm->bindParam(6,$this->tel);
+        $stm->bindParam(5,$this->cartera);
+        $stm->bindParam(6,$this->direc);
         $stm->bindParam(7,$this->cel);
         $stm->bindParam(8,$this->id_ruta);
         return $stm->execute();
