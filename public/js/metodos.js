@@ -579,14 +579,14 @@ function editar_usuario(consulta) {
         .done(function (respuesta) {
             var contenido = jQuery.parseJSON(respuesta);
             $('#id_usuario').val(contenido.id_proveedor);
-            $('#nombres_us').val(contenido.nombres_usuario);
-            $('#nombre_con').val(contenido.apellidos_usuario);
+            $('#nombres').val(contenido.nombres_usuario);
+            $('#apellidos').val(contenido.apellidos_usuario);
             $('#tipo_doc').val(contenido.tipo_documento);
             $('#num_doc').val(contenido.numero_documento);
-            $("#rol").val(contenido.rol_usuario);
-            $("#us").val(contenido.usuario);
-            $("#cl").val(contenido.clave);
-            buscar_proveedor($('#nombres_us').val());
+            $("#tipo_usu").val(contenido.rol_usuario);
+            $("#user").val(contenido.usuario);
+            $("#clave").val(contenido.clave);
+            buscar_usuario($('#nombres_us').val());
         })
         .fail(function () {
             console.log("error");
