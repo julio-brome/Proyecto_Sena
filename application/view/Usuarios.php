@@ -28,6 +28,7 @@
     <input id="cancelar_mod" type="reset" value="Cancelar">
 
     <br>
-
-    <table id="datos_usuario"></table>
+    <div class="table-responsive">
+        <table id="datos_usuario"></table>
+        </div>
 </form>
