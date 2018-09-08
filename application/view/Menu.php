@@ -49,39 +49,39 @@ if(isset ($_SESSION['USUARIO'])){ ?>
                     <img src="<?= URL ?>/public/img/logo.png" class="user-image img-responsive" />
                 </li>
                 <li>
-                    <a id="usuarios" href="#"><i class="fa fa-male fa-2x"></i> Usuarios</a>
+                    <a id="usuarios" href="#"><i class="fa fa-male fa-2x"  style="color: silver"></i> Usuarios</a>
                 </li>
                 <li>
-                    <a id="clientes" href="#"><i class="fa fa-users fa-2x"></i> Clientes</a>
+                    <a id="clientes" href="#"><i class="fa fa-users fa-lg" style="color: silver"></i> Clientes</a>
                 </li>
                 <li>
-                    <a id="proveedores" href="#"><i class="fa fa-truck fa-2x"></i> Proveedores</a>
+                    <a id="proveedores" href="#"><i class="fa fa-truck fa-lg"></i> Proveedores</a>
                 </li>
                 <li>
-                    <a id="productos" href="#"><i class="fa fa-gift fa-2x"></i> Productos</a>
+                    <a id="productos" href="#"><i class="fa fa-gift fa-lg"></i> Productos</a>
                 <ul class="children">
                     <li>
-                       <a id="agotados" href="#"><i class="fa fa-users fa-2x"></i> Productos agotados</a>
+                       <a id="agotados" href="#"><i class="fa fa-users fa-lg"></i> Productos agotados</a>
                     </li>
                     <li>
-                       <a id="categorias" href="#"><i class="fa fa-users fa-2x"></i> Categorias</a>
+                       <a id="categorias" href="#"><i class="fa fa-users fa-lg"></i> Categorias</a>
                     </li>
                 </ul>
                 </li>
                 <li>
-                    <a id="carteras" href="#"><i class="fa fa-money fa-2x"></i> Cartera</a>
+                    <a id="carteras" href="#"><i class="fa fa-money fa-lg"></i> Cartera</a>
                 </li>
                 <li>
-                    <a id="compras" href="#"><i class="fa fa-shopping-cart fa-2x"></i> Compras</a>
+                    <a id="compras" href="#"><i class="fa fa-shopping-cart fa-lg"></i> Compras</a>
                 </li>
                 <li>
-                    <a id="pedidos" href="#"><i class="fa fa-book fa-2x"></i> Pedidos</a>
+                    <a id="pedidos" href="#"><i class="fa fa-book fa-lg"></i> Pedidos</a>
                 </li>
                 <li>
-                    <a id="rutas" href="#"><i class="fa fa-edit fa-2x"></i> Rutas </a>
+                    <a id="rutas" href="#"><i class="fa fa-edit fa-lg"></i> Rutas </a>
                 </li>
                 <li>
-                    <a id="movimientos" href="#"><i class="fa fa-edit fa-2x"></i> Movimientos </a>
+                    <a id="movimientos" href="#"><i class="fa fa-edit fa-lg"></i> Movimientos </a>
                 </li>
             </ul>
 

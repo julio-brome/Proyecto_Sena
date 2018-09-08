@@ -654,7 +654,7 @@ function editar_cliente(consulta) {
         .done(function (respuesta) {
             var contenido = jQuery.parseJSON(respuesta);
             $('#id_cliente').val(contenido.id_cliente);
-            $('#nombres').val(contenido.nombres_cliente);
+            $('#nombres_c').val(contenido.nombres_cliente);
             $('#apellidos').val(contenido.apellidos_cliente);
             $('#tipo_doc').val(contenido.tipo_documento);
             $('#num_doc').val(contenido.numero_documento);

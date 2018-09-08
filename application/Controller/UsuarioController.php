@@ -13,8 +13,8 @@ class UsuarioController {
         $usuario = new Usuario();
         $salida="";
 
-        if(isset($_POST['nombres'])){
-            $usuario->__SET("nombres_usuario", $_POST["nombres"]);
+        if(isset($_POST['nombre'])){
+            $usuario->__SET("nombres_usuario", $_POST["nombre"]);
             $lista = $usuario->listar();
         }else {
             $usuario->__SET("nombres_usuario", "");
