@@ -10,11 +10,12 @@
     </select>
 
     <input name="txtnumero_doc" id="num_doc" type="text" placeholder="Numero de documento" maxlength="25" autocomplete="off" required> <br>
+    <input type="number" placeholder="Cartera" name="cartera_dis" id="cartera_dis" maxlength="7">
     <input id="dc" name="txtdc" type="text" placeholder="Direccion" maxlength="25" autocomplete="off" required>
-    <input id="tel" name="txttel" type="tel" placeholder="Telefono" maxlength="13" autocomplete="off" required>
     <input id="cel" name="txtcel" type="tel" placeholder="Celular" maxlength="13" autocomplete="off" required>
     <select id="select_r" name="ide_r" required>
         <option value="">Seleccione ruta</option>
+        <option value="1">Medellin</option>
     </select>
 
     <br>

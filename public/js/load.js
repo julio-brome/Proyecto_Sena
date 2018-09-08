@@ -63,6 +63,7 @@ function mostrar() {
     if ($('#org').val() != "") {
         mensaje = $('#org').val();
         ver_success();
+        limpiar();
     }
 }
 

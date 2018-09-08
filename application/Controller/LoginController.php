@@ -43,4 +43,11 @@ class LoginController {
         }
         }
     }
+
+    public function limpiar(){
+        unset($_SESSION['RESPUESTA']);
+        unset($_SESSION['LOCAL']);
+
+        echo "se cerraron";
+    }
 }
