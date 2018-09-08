@@ -422,8 +422,8 @@ $(document).on('click', '#Estado_usuario', function () {
 
 $(document).on('click', '#editar_usuario', function () {
     editar_usuario($(this).val());
-    $('#guardar_proveedor').hide();
-    $('#modificar_proveedor').show();
+    $('#guardar_usuario').hide();
+    $('#modificar_usuario').show();
     return false;
 });
 
