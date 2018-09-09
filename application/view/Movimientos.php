@@ -29,3 +29,9 @@
         <input type="button" value="Descargar a excel" id="enviar">
     </div>
 </form>
+
+<script>
+    $(document).ready(function() {
+        $("select").select2();
+    });
+</script>
