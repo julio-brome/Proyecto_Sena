@@ -12,6 +12,7 @@
 
        <div class="table-responsive">
             <table id="datos_c"></table>
-        </div>
+       </div>
+       <input type="button" value="Descargar a excel" id="enviar">
     </div>
 </form>

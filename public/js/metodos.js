@@ -662,7 +662,7 @@ function editar_cliente(consulta) {
             $("#cartera_dis").val(contenido.cartera);
             $("#cel").val(contenido.celular);
             $("#select_r").val(contenido.id_ruta);
-            buscar_cliente($('#nombres').val());
+            buscar_cliente($('#nombres_c').val());
         })
         .fail(function () {
             console.log("error");

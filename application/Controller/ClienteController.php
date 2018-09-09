@@ -36,8 +36,8 @@ class ClienteController {
         $salida.="<table class='tabla_datos'>
         <thead>
             <tr>
-                <th>Nombre empresa</th>
-                <th>Nombre contacto</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
                 <th>Tipo documento</th>
                 <th>Numero documento</th>
                 <th>Direccion</th>
@@ -87,7 +87,7 @@ class ClienteController {
                     ".$texto."
                 </td>
                 <td>
-                    <button id='editar_cliente' value=".$value->id_cliente.">Modificar</button>
+                    <button class='modificar' id='editar_cliente' value=".$value->id_cliente.">Modificar</button>
                 </td>
                 <td>
                 <button style='background-color: ".$color." ;' id='Estado_cliente' value=".$value->id_cliente.">".$estados."</button>

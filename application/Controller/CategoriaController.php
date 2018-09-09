@@ -63,7 +63,7 @@ class CategoriaController {
                     ".$texto."
                 </td>
                 <td>
-                    <button id='editar_c' value=".$value->id_categoria.">Modificar</button>
+                    <button class='modificar' id='editar_c' value=".$value->id_categoria.">Modificar</button>
                 </td>
                 <td>
                 <button style='background-color: ".$color." ;' id='Estado_c' value=".$value->id_categoria.">".$estados."</button>

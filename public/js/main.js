@@ -416,12 +416,14 @@ $(document).on('click', '#editar_cliente', function () {
     editar_cliente($(this).val());
     $('#guardar_cliente').hide();
     $('#modificar_cliente').show();
+    $('#registro_cliente label').slideDown();
     return false;
 });
 
 $(document).on('click', '#can_mod', function () {
     $('#modificar_cliente').hide();
     $('#guardar_cliente').show();
+    $('#registro_cliente label').slideUp();
     buscar_cliente();
 });
 
@@ -457,7 +459,7 @@ $(document).on('click', '#cancelar_mod', function () {
 });
 
 //Form movimientos
-$(document).on('click','#reset_mov', function(){
+$(document).on('click', '#reset_mov', function () {
     buscar_movimientos();
 });
 
@@ -496,5 +498,12 @@ $(document).on('click', '#atras_p', function () {
     $('#crear_producto').hide();
     $('#ver_detalle').slideDown();
     buscar_detalle();
+    return false;
+});
+
+//Exportar a excel
+$(document).on('click', '#enviar', function () {
+    $('table button').remove();
+    descargarExcel();
     return false;
 });
