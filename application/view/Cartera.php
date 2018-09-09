@@ -6,7 +6,7 @@
            <option value="">Seleccione cliente</option>
             <?php foreach($resultado as $value): ?>
             <option value="<?= $value->numero_documento ?>">
-                <?= $value->nombre_cliente."/".$value->numero_documento ?>
+                <?= $value->nombres_cliente."-".$value->apellidos_cliente."/".$value->numero_documento ?>
             </option>
             <?php endforeach ?>
             ?>
@@ -27,3 +27,9 @@
         </div>
     </div>
 </form>
+
+<script>
+    $(document).ready(function() {
+        $("#cedula").select2();
+    });
+</script>
