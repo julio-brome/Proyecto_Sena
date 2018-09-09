@@ -29,9 +29,10 @@
     <input class="succes" id="guardar_cliente" type="submit" value="Guardar" formaction="<?= URL ?>cliente/guardar">
     <input class="succes" id="modificar_cliente" type="submit" value="Guardar cambios" formaction="<?= URL ?>cliente/modificar">
     <input id="can_mod" type="reset" value="Cancelar">
+
+    <div class="table-responsive">
+        <table id="datos_cliente"></table>
+    </div>
+
+    <input type="button" value="Descargar a excel" id="enviar">
 </form>
-
-
-<div class="table-responsive">
-    <table id="datos_cliente"></table>
-</div>

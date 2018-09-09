@@ -459,7 +459,7 @@ $(document).on('click', '#cancelar_mod', function () {
 });
 
 //Form movimientos
-$(document).on('click','#reset_mov', function(){
+$(document).on('click', '#reset_mov', function () {
     buscar_movimientos();
 });
 
@@ -498,5 +498,12 @@ $(document).on('click', '#atras_p', function () {
     $('#crear_producto').hide();
     $('#ver_detalle').slideDown();
     buscar_detalle();
+    return false;
+});
+
+//Exportar a excel
+$(document).on('click', '#enviar', function () {
+    $('table button').remove();
+    descargarExcel();
     return false;
 });

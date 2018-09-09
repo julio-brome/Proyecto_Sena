@@ -21,7 +21,7 @@
    text-align:center;
 }*/
 
-#registro_cliente label{
+#registro_cliente label {
     margin-top: 10px;
     font-size: 15px;
     position: absolute;
@@ -74,7 +74,7 @@ select {
     color: white;
 }
 
-#label2{
+#label2 {
     position: absolute;
     margin-left: 300px;
 }
@@ -136,6 +136,7 @@ table .modificar {
     background-color: royalblue;
 }
 
+/*
 @media screen and (max-width: 600px) {
 
     table {
@@ -168,3 +169,10 @@ table .modificar {
         text-align: center;
     }
 }
+*/
+
+/*
+@media screen and (max-width: 940px) {
+
+}
+*/

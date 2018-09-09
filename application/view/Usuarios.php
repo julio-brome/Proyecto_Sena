@@ -30,5 +30,6 @@
     <br>
     <div class="table-responsive">
         <table id="datos_usuario"></table>
-        </div>
+    </div>
+    <input type="button" value="Descargar a excel" id="enviar">
 </form>
