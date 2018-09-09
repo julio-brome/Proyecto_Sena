@@ -87,7 +87,7 @@ class ProveedorController {
                     ".$texto."
                 </td>
                 <td>
-                    <button id='editar_proveedor' value=".$value->id_proveedor.">Modificar</button>
+                    <button class='modificar' id='editar_proveedor' value=".$value->id_proveedor.">Modificar</button>
                 </td>
                 <td>
                 <button style='background-color: ".$color." ;' id='Estado_proveedor' value=".$value->id_proveedor.">".$estados."</button>

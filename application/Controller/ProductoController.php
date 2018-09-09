@@ -100,10 +100,10 @@ if($value->estado_producto==1){
                     ".$value->nombre_categoria."
                 </td>
                 <td>
-                    <button id='asignar' value=".$value->id_producto." title='Asignar proveedor'>+</button>
+                    <button id='asignar' value=".$value->id_producto." title='Asignar proveedor' style = 'background-color: gray'><i class='fas fa-user-plus'></i></button>
                 </td>
                 <td>
-                    <button id='editar_p' value=".$value->id_producto.">Modificar</button>
+                    <button class='modificar' id='editar_p' value=".$value->id_producto.">Modificar</button>
                 </td>
                 <td>
                     <button style='background-color: ".$color." ;' id='Estado_p' value=".$value->id_producto.">".$estados."</button>

@@ -9,6 +9,25 @@
     display: none;
 }
 
+/*h2 {
+    text-align: center;
+}*/
+
+/*#contenido form{
+    padding:2px;
+   cursor:pointer;
+   display:block;
+   margin: 0 auto;
+   text-align:center;
+}*/
+
+#registro_cliente label{
+    margin-top: 10px;
+    font-size: 15px;
+    position: absolute;
+    display: none;
+}
+
 #consulta_cartera label {
     font-size: 15px;
     margin-top: 10px;
@@ -45,12 +64,19 @@ select {
     font-weight: normal;
     margin-bottom: 10px;
     margin-right: 20px;
+    width: 270px;
 }
 
 .succes {
-    background-color: seagreen;
+    background-color: #f04124;
     border-radius: 5px;
-    padding: 2px;
+    padding: 5px;
+    color: white;
+}
+
+#label2{
+    position: absolute;
+    margin-left: 300px;
 }
 
 /* TABLA */
@@ -102,6 +128,12 @@ table button {
     border: none;
     font-family: arial, sans-serif;
     font-size: 15px;
+    border-radius: 5px;
+    color: white;
+}
+
+table .modificar {
+    background-color: royalblue;
 }
 
 @media screen and (max-width: 600px) {

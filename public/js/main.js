@@ -416,12 +416,14 @@ $(document).on('click', '#editar_cliente', function () {
     editar_cliente($(this).val());
     $('#guardar_cliente').hide();
     $('#modificar_cliente').show();
+    $('#registro_cliente label').slideDown();
     return false;
 });
 
 $(document).on('click', '#can_mod', function () {
     $('#modificar_cliente').hide();
     $('#guardar_cliente').show();
+    $('#registro_cliente label').slideUp();
     buscar_cliente();
 });
 
