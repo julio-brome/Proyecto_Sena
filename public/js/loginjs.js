@@ -14,7 +14,7 @@ function preloadInit() {
   //guardamos en una variable el alto del que tiene tu browser que no es lo mismo que del DOM
   var alto=$(window).height();
   //agregamos en el body un div que sera que ocupe toda la pantalla y se muestra encima de todo
-  $("body").append("<div id='pre-load-web'><div id='imagen-load'><img src='/Smart_Supply_v3/public/img/ajax-loader.gif'/><br />Cargando...</div>");
+  $("body").append("<div id='pre-load-web'><div id='imagen-load'><img src='/Proyecto_Sena/public/img/ajax-loader.gif'/><br />Cargando...</div>");
   //le damos el alto
   $("#pre-load-web").css({height:alto+"px"});
   //esta sera la capa que esta dento de la capa que muestra un gif

@@ -12,6 +12,8 @@
 <script type="text/javascript" src="<?= URL?>/public/js/alertas.js"></script>
 <script type="text/javascript" src="<?= URL?>/public/js/load.js"></script>
 <script type="text/javascript" src="<?= URL?>/public/js/Exportar.js"></script>
+<script type="text/javascript" src="<?= URL?>/public/select2/js/select2.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 </body>
 
 </html>
