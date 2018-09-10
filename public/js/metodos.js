@@ -424,7 +424,7 @@ function consultar_cartera(consulta) {
         .done(function (respuesta) {
             console.log(JSON.stringify(respuesta));
             var contenido = jQuery.parseJSON(respuesta);
-            $('#nombre_cliente').html(contenido.nombres_cliente);
+            $('#nombre_cliente').html(contenido.nombres_cliente + " " + contenido.apellidos_cliente);
             $('#cartera').html(contenido.cartera);
             $('#disponible').html((contenido.cartera) - (contenido.valor_total));
             $('#pedido').html(contenido.valor_total);
