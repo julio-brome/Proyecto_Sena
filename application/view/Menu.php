@@ -1,5 +1,4 @@
 <?php
-//comentario prueba...
 if(isset ($_SESSION['USUARIO'])){ ?>
 <!DOCTYPE html>
 <html lang="en">
