@@ -51,7 +51,6 @@ if(empty($productos)){
 $salida.="<div class='table-responsive'><table class='table'>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nombre</th>
                 <th>Precio de venta</th>
                 <th>Existencia</th>
@@ -78,9 +77,6 @@ if($value->estado_producto==1){
     $color = "green";
 }
                 $salida.="<tr>
-                <td>
-                    ".$value->id_producto."
-                </td>
                 <td>
                     ".$value->nombre_producto."
                 </td>
