@@ -9,7 +9,7 @@ function menus() {
         $('#rutas').hide();
         $('#carteras').hide();
         $('#movimientos').hide();
-    } else if ($('#user_log').val() == "VENDEDOR") {
+    } else if ($('#user_log').val() == "VENTAS") {
         $('#compras').hide();
         $('#usuarios').hide();
         $('#rutas').hide();
@@ -17,6 +17,7 @@ function menus() {
         $('#proveedores').hide();
         $('#productos').hide();
         $('#movimientos').hide();
+        $('.children').hide();
     }
 }
 
