@@ -27,7 +27,7 @@
 					<option value="" > </option>
 
 						<?php foreach($clientes as $value): ?>
-						<option direc="<?= $value->direccion?>" tel= <?= $value->telefono?> value="<?= $value->id_cliente?>"><?=$value->documento.'  '.$value->nombre.'  '.$value->apellido?></option>
+						<option direc="<?= $value->direccion?>" tel= <?= $value->celular?> value="<?= $value->id_cliente?>"><?=$value->numero_documento.'  '.$value->nombres_cliente.'  '.$value->apellidos_cliente?></option>
 						<?php endforeach; ?>
 
 
@@ -71,7 +71,7 @@
 					<select class="form-control" required ="true" id="ddlProducto" onchange = "ponerPrecio(this)">
 				<option value="" ></option>
 				<?php foreach($productos as $value): ?>
-				<option cantidad= <?= $value->cantidad_en_existencia ?>  precio= <?= $value->valor_de_venta ?> idP= "<?= $value->nombre_del_producto ?>" value="<?= $value->id_producto ?>"><?= $value->nombre_del_producto ?></option>
+				<option cantidad= "<?= $value->existencia ?>"  precio= "<?= $value->precio_venta ?>" idP= "<?= $value->nombre_producto ?>" value="<?= $value->id_producto ?>"><?= $value->nombre_producto ?></option>
 				<?php endforeach; ?>
 					</select><br><br><br>
 
@@ -121,7 +121,7 @@
 			<div class="container">
 					<div class="card bg-success text-black">
 							<div class="card-body"><h5>Pedido     </h5>
-							<input type="hidden" name="estadoPedido" value="1">
+							<input type="hidden" name="estadoPedido" value="pendiente">
 							</div>
 						</div>
 

@@ -47,6 +47,9 @@ function traer() {
 
     } else if ($('#carga').val() == "7") {
         $('#contenido').html("");
+        $('#contenido').load(uri + '/Pedido/consultaPedido', function () {
+            
+        });
 
     } else if ($('#carga').val() == "8") {
         $('#contenido').html("");
@@ -113,6 +116,7 @@ $(document).on('click', '#rutas', function () {
 
 $(document).on('click', '#pedidos', function () {
     $('#contenido').html("");
+    $('#contenido').load(uri + '/Pedido/consultaPedido');
 });
 
 $(document).on('click', '#compras', function () {
