@@ -32,6 +32,6 @@
 
 <script>
     $(document).ready(function() {
-        $("select").select2();
+        $("#producto_mov").select2();
     });
 </script>

@@ -10,6 +10,8 @@ class CarteraController {
     public function index(){
         if(isset($_SESSION['USUARIO'])){
             $clientes = new Clientes();
+            $clientes->__SET("nombres", "");
+            $clientes->__SET("id_ruta", "");
             $resultado= $clientes->listar();
         }else {
             header("location: ".URL."Login/menu");

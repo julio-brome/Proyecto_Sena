@@ -22,11 +22,13 @@ class ClienteController {
         $cliente = new Clientes();
         $salida="";
 
-        if(isset($_POST['nombre'])){
+        if(isset($_POST['nombre']) && isset($_POST['ruta'])){
             $cliente->__SET("nombres", $_POST["nombre"]);
+            $cliente->__SET("id_ruta", $_POST["ruta"]);
             $lista = $cliente->listar();
         }else {
             $cliente->__SET("nombres", "");
+            $cliente->__SET("id_ruta", "");
             $lista = $cliente->listar();
         }
 

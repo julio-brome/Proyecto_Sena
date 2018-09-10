@@ -21,7 +21,8 @@
     <input id="dc" name="txtdc" type="text" placeholder="Direccion" maxlength="25" autocomplete="off" required>
     <select style="margin-right:20px" id="select_r" name="ide_r" required>
         <option value="">Seleccione ruta</option>
-        <option value="1">Medellin</option>
+        <option value="1">ruta 1</option>
+        <option value="2">ruta 2</option>
     </select>
 
     <br>
@@ -36,3 +37,9 @@
 
     <input type="button" value="Descargar a excel" id="enviar">
 </form>
+
+<script>
+    $(document).ready(function() {
+        $("#select_r").select2();
+    });
+</script>
