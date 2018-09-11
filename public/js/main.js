@@ -522,3 +522,14 @@ $(document).on('click', '#enviar', function () {
     descargarExcel();
     return false;
 });
+
+//buscar rutas
+$(document).ready( function () {
+    $('#rruta').DataTable();
+} );
+
+$(document).on('change','#ddlMuni',function(){
+    //var valor = $('#ddlMuni'.val());
+    var mun = $('#ddlMuni').val();
+    buscarBarrios($(this).val());
+})
