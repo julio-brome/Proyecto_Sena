@@ -22,9 +22,7 @@ class CarteraController {
     }
     
     public function buscar(){
-        $cartera = new Cartera();        
-        if(isset($_POST['cedula'])){
-        
+        $cartera = new Cartera();
         $cartera->__SET("cedula", $_POST['cedula']);
         $p = $cartera->consulta_pedido();
             
@@ -34,7 +32,6 @@ class CarteraController {
         }
             
         echo json_encode($p,JSON_FORCE_OBJECT);
-        }
     }
     
 }

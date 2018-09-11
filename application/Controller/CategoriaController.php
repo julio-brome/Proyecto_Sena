@@ -77,51 +77,43 @@ class CategoriaController {
     
     public function guardar_categoria(){
         $categoria = new Categoria();
-        if(isset($_POST['categoria'])){
-            $categoria->__SET("nombre_c", $_POST['categoria']);
-            $consulta = $categoria->Buscar_categoria();
+        $categoria->__SET("nombre_c", $_POST['categoria']);
+        $consulta = $categoria->Buscar_categoria();
             
-            if(empty($consulta)){
+        if(empty($consulta)){
             if($categoria->guardar_categoria()){
                 echo "si";
             }else {
                 echo "no";
             }
-            }else{
+        }else{
                 echo "Ya existe";
-            }
         }
+
     }
     
     public function estado_categoria(){
         $categoria = new Categoria();
-        if(isset($_POST['id']) && isset($_POST['estado'])) {
         $categoria->__SET("id", $_POST["id"]);
         $categoria->__SET("estado", $_POST["estado"]);
-            
-            
+
         if($categoria->cambiar_estado()){
             echo "si";
         }else{
             echo "no";
         }
     }
-    }
     
     public function editar_categoria(){
         $categoria = new Categoria();
-        if(isset($_POST['id'])) {
         $categoria->__SET("id", $_POST["id"]);
-        
         $resultado = $categoria->consultar_categoria();
             
         echo json_encode($resultado, JSON_FORCE_OBJECT);
     }
-    }
     
     public function modificar_categoria(){
         $categoria = new Categoria();
-        if(isset($_POST['id']) && isset($_POST['nombre'])) {
         $categoria->__SET("id", $_POST["id"]);
         $categoria->__SET("nombre_c", $_POST["nombre"]);
         $consulta = $categoria->Buscar_categoria();
@@ -137,6 +129,4 @@ class CategoriaController {
         }
             
     }
-    }
-    
 }
