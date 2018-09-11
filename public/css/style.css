@@ -78,6 +78,12 @@ select {
     position: absolute;
     margin-left: 300px;
 }
+#form_pedido table{
+width : 855px;
+margin : 15px;
+
+
+}
 
 /* TABLA */
 /*.table-responsive {
