@@ -717,3 +717,22 @@ function limpiar(){
             console.log("error");
         });
 }
+
+//listar barrios por municipios
+function buscarBarrios(consulta){
+    $.ajax({
+        url: uri+ '/Ruta/consultar_barrio',
+        type:'POST',
+        datatype:'HTML',
+        data:{
+            id:consulta,
+        },
+         })
+         .done(function(datos){
+             $('#ddlbarri').html(datos);
+         })
+
+         .fail(function(){
+             console.log("error");
+         });
+}
