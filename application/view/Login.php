@@ -78,7 +78,6 @@
     <script type="text/javascript" src="<?= URL?>/public/js/metodos.js"></script>
     <script type="text/javascript" src="<?= URL?>/public/js/alertas.js"></script>
     <script type="text/javascript" src="<?= URL?>/public/js/jquery.js"></script>
-    <script type="text/javascript" src="<?= URL?>/public/js/loginjs.js"></script>
     <script type="text/javascript" src="<?= URL?>/public/js/bootstrap.js"></script>
 
 </body>
