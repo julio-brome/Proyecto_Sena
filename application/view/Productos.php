@@ -91,3 +91,11 @@
     </div>
     <input type="button" value="Descargar a excel" id="enviar">
 </form>
+
+<script>
+    $(document).ready(function() {
+        $("#proveedor_d").select2();
+        $("#categorias_p").select2();
+        $("#proveedores_p").select2();
+    });
+</script>

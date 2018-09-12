@@ -8,7 +8,7 @@ class ClienteController {
 
     public function index (){
         if(isset($_SESSION['USUARIO'])){
-            if($_SESSION['USUARIO']->rol_usuario== "ADMINISTRADOR" || $_SESSION['USUARIO']->rol_usuario== "BODEGA"){
+            if($_SESSION['USUARIO']->rol_usuario== "ADMINISTRADOR" || $_SESSION['USUARIO']->rol_usuario== "BODEGA" || $_SESSION['USUARIO']->rol_usuario == "VENTAS"){
             }else {
                 header("location: ".URL."Login/menu");
             }
@@ -22,11 +22,13 @@ class ClienteController {
         $cliente = new Clientes();
         $salida="";
 
-        if(isset($_POST['nombre'])){
+        if(isset($_POST['nombre']) && isset($_POST['ruta'])){
             $cliente->__SET("nombres", $_POST["nombre"]);
+            $cliente->__SET("id_ruta", $_POST["ruta"]);
             $lista = $cliente->listar();
         }else {
             $cliente->__SET("nombres", "");
+            $cliente->__SET("id_ruta", "");
             $lista = $cliente->listar();
         }
 

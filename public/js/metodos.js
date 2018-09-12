@@ -424,7 +424,7 @@ function consultar_cartera(consulta) {
         .done(function (respuesta) {
             console.log(JSON.stringify(respuesta));
             var contenido = jQuery.parseJSON(respuesta);
-            $('#nombre_cliente').html(contenido.nombre_cliente);
+            $('#nombre_cliente').html(contenido.nombres_cliente + " " + contenido.apellidos_cliente);
             $('#cartera').html(contenido.cartera);
             $('#disponible').html((contenido.cartera) - (contenido.valor_total));
             $('#pedido').html(contenido.valor_total);
@@ -626,13 +626,14 @@ function cambiar_usuario(consulta, consulta2) {
 }
 
 //Clientes
-function buscar_cliente(consulta) {
+function buscar_cliente(consulta,consulta2) {
     $.ajax({
             url: uri + '/cliente/tabla',
             type: 'POST',
             dataType: 'html',
             data: {
-                nombre: consulta
+                nombre: consulta,
+                ruta: consulta2
             },
         })
         .done(function (respuesta) {
@@ -662,7 +663,7 @@ function editar_cliente(consulta) {
             $("#cartera_dis").val(contenido.cartera);
             $("#cel").val(contenido.celular);
             $("#select_r").val(contenido.id_ruta);
-            buscar_cliente($('#nombres_c').val());
+            buscar_cliente($('#nombres_c').val(),$('#select_r').val());
         })
         .fail(function () {
             console.log("error");
@@ -717,6 +718,7 @@ function limpiar(){
         });
 }
 
+<<<<<<< HEAD
 function ponerPrecio(elemento){
     var valor = $("#ddlProducto").val();
     var precio = $("#ddlProducto [value='"+valor+"']").attr("precio");
@@ -735,3 +737,23 @@ function direccion(elemento){
 
 
 }
+=======
+//listar barrios por municipios
+function buscarBarrios(consulta){
+    $.ajax({
+        url: uri+ '/Ruta/consultar_barrio',
+        type:'POST',
+        datatype:'HTML',
+        data:{
+            id:consulta,
+        },
+         })
+         .done(function(datos){
+             $('#ddlbarri').html(datos);
+         })
+
+         .fail(function(){
+             console.log("error");
+         });
+}
+>>>>>>> a5dd6af094892c194b274dc16b624a3cce3352ae

@@ -26,8 +26,9 @@ class Clientes extends Model {
     }
 
     public function listar(){
-        $stm = $this->db->prepare("CALL Listar_clientes(?)");
+        $stm = $this->db->prepare("CALL Listar_clientes(?,?)");
         $stm->bindParam(1,$this->nombres);
+        $stm->bindParam(2,$this->id_ruta);
         $stm->execute();
         return $stm->fetchAll();
     }

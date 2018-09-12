@@ -9,25 +9,6 @@
     display: none;
 }
 
-/*h2 {
-    text-align: center;
-}*/
-
-/*#contenido form{
-    padding:2px;
-   cursor:pointer;
-   display:block;
-   margin: 0 auto;
-   text-align:center;
-}*/
-
-#registro_cliente label {
-    margin-top: 10px;
-    font-size: 15px;
-    position: absolute;
-    display: none;
-}
-
 #consulta_cartera label {
     font-size: 15px;
     margin-top: 10px;
@@ -47,24 +28,13 @@ button {
 }
 
 /* INPUT */
-input[type=text],
-input[type=number],
-input[type=tel],
-input[type=list],
-select {
-    background-size: 25%;
-    outline: none;
-    padding: 10px 15px;
-    color: black;
-    border: none;
-    border-bottom: 1px solid #b5b5b5;
-    border-radius: 2px;
-    font-family: Roboto;
-    font-size: 14px;
-    font-weight: normal;
-    margin-bottom: 10px;
-    margin-right: 20px;
-    width: 270px;
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=tel]:focus,
+input[type=list]:focus,
+select:focus {
+    border-bottom: 1px solid #f04124;
+    transition: all .5s ease;
 }
 
 .succes {
@@ -84,11 +54,6 @@ margin : 15px;
 
 
 }
-
-/* TABLA */
-/*.table-responsive {
-    max-height: 505px;
-}*/
 
 table {
     font-family: arial, sans-serif;
@@ -141,44 +106,3 @@ table button {
 table .modificar {
     background-color: royalblue;
 }
-
-/*
-@media screen and (max-width: 600px) {
-
-    table {
-        width: 100%;
-    }
-
-    thead {
-        display: none;
-    }
-
-    tr:nth-of-type(2n) {
-        background-color: inherit;
-    }
-
-    tr td:first-child {
-        background: #434343;
-        font-weight: bold;
-        font-size: 1.3em;
-        color: white;
-    }
-
-    tbody td {
-        display: block;
-        text-align: center;
-    }
-
-    tbody td:before {
-        content: attr(data-th);
-        display: block;
-        text-align: center;
-    }
-}
-*/
-
-/*
-@media screen and (max-width: 940px) {
-
-}
-*/
