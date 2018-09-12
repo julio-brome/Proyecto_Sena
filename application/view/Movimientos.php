@@ -47,6 +47,7 @@
     <div class="table-responsive">
         <table id="datos_mov"></table>
     </div>
+    <input type="button" value="Descargar a excel" id="enviar">
 </form>
 
 <script>

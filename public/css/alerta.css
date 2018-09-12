@@ -1,8 +1,8 @@
 .popupunder{
     width: 300px;
 	position:fixed;
-	top: 65px;
-	right: 5px;
+	top: 90px;
+	right: 35px;
 	z-index: 10;
 	border: 0;
 	padding: 20px;

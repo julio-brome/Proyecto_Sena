@@ -435,7 +435,7 @@ $(document).on('click', '#editar_cliente', function () {
 $(document).on('click', '#can_mod', function () {
     $('#modificar_cliente').hide();
     $('#guardar_cliente').show();
-    $('#select_r').val('').trigger('change');
+    $('select').val('').trigger('change');
     buscar_cliente();
 });
 
