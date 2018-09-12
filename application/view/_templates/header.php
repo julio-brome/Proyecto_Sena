@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +11,8 @@
     <link rel="stylesheet" href="<?= URL ?>/public/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?= URL ?>/public/fontawesome-free-5.3.1-web/css/all.min.css">
     <link rel="stylesheet" href="<?= URL ?>/public/select2/css/select2.min.css" media="screen">
-<<<<<<< HEAD
     
     
-=======
-    <link rel="stylesheet" href="<?= URL ?>/public/css/jquery.dataTables.min.css">
->>>>>>> a5dd6af094892c194b274dc16b624a3cce3352ae
 </head>
 
 <body>

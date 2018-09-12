@@ -718,7 +718,6 @@ function limpiar(){
         });
 }
 
-<<<<<<< HEAD
 function ponerPrecio(elemento){
     var valor = $("#ddlProducto").val();
     var precio = $("#ddlProducto [value='"+valor+"']").attr("precio");
@@ -737,23 +736,3 @@ function direccion(elemento){
 
 
 }
-=======
-//listar barrios por municipios
-function buscarBarrios(consulta){
-    $.ajax({
-        url: uri+ '/Ruta/consultar_barrio',
-        type:'POST',
-        datatype:'HTML',
-        data:{
-            id:consulta,
-        },
-         })
-         .done(function(datos){
-             $('#ddlbarri').html(datos);
-         })
-
-         .fail(function(){
-             console.log("error");
-         });
-}
->>>>>>> a5dd6af094892c194b274dc16b624a3cce3352ae
