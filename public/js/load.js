@@ -148,3 +148,19 @@ $(document).on('click', '#cr', function () {
     $('#contenido').load(uri + '/Ruta/crear');
 
 });
+
+$(document).on('click', '#crearPedido', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri + '/Pedido/index');
+    ponerPrecio();
+    direccion();
+
+});
+
+$(document).on('click', '#consultaPedido', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri + '/Pedido/consultaPedido');
+    ponerPrecio();
+    direccion();
+
+});

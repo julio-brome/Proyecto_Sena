@@ -1,12 +1,3 @@
-<div class="table-responsive">
-
-	<div class="row">
-	
-<a class="btn btn-lg btn-success btn block" href="<?= URL ?>/pedido/index">Crear Pedido</a>
-	</div>
-</div>
-<br><br>
-
 <div class="table-responsive">    
     <div class="row">
 				<table id="example" class="table table-striped table-bordered " style= "width:100%">

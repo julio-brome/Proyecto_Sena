@@ -76,6 +76,14 @@ if(isset ($_SESSION['USUARIO'])){ ?>
                 </li>
                 <li>
                     <a id="pedidos" href="#"><i class="fa fa-book fa-lg" style="color: silver"></i> Pedidos</a>
+                    <ul class="hijos_pedidos">
+                        <li>
+                            <a id="consultaPedido" href="#"><i class="fa fa-exclamation-triangle fa-lg" style="color: silver"></i>Consultar Pedidos</a>
+                        </li>
+                        <li>
+                            <a id="crearPedido" href="#"><i class="fa fa-copy fa-lg" style="color: silver"></i> Crear Pedidos</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a id="rutas" href="#"><i class="fas fa-route fa-lg" style="color: silver"></i> Rutas </a>
