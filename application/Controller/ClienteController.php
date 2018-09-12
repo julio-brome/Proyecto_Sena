@@ -3,12 +3,15 @@
 namespace Mini\Controller;
 
 use Mini\Model\Clientes;
+use Mini\Model\Ruta;
 
 class ClienteController {
 
     public function index (){
         if(isset($_SESSION['USUARIO'])){
             if($_SESSION['USUARIO']->rol_usuario== "ADMINISTRADOR" || $_SESSION['USUARIO']->rol_usuario== "BODEGA" || $_SESSION['USUARIO']->rol_usuario == "VENTAS"){
+                $rutas = new Ruta();
+                $resultado = $rutas->listar();
             }else {
                 header("location: ".URL."Login/menu");
             }

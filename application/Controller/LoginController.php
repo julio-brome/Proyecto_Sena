@@ -29,19 +29,17 @@ class LoginController {
     }
     
     public function buscar(){
-        $datos = new Login();        
-        if(isset($_POST['usuario']) && isset($_POST['clave'])){
+    $datos = new Login();
+    $datos->__SET("usuario", $_POST['usuario']);
+    $datos->__SET("clave", $_POST['clave']);
+    $p = $datos->consulta_usuario();
         
-        $datos->__SET("usuario", $_POST['usuario']);
-        $datos->__SET("clave", $_POST['clave']);
-        $p = $datos->consulta_usuario();
-        
-        if(empty($p)){
-            echo "usuario incorrecto";
-        } else {
-            $_SESSION['USUARIO']= $p;
-        }
-        }
+    if(empty($p)){
+        echo "usuario incorrecto";
+    } else {
+        $_SESSION['USUARIO']= $p;
+    }
+
     }
 
     public function limpiar(){

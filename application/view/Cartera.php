@@ -1,16 +1,23 @@
 <form id="consulta_cartera">
     <div id="margen">
         <h2 id="titulo">Consultar cartera</h2>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 form-group">
+                    <label>Clientes</label>
+                    <select class="form-control" id="cedula">
+                        <option value="">Seleccione cliente</option>
+                        <?php foreach($resultado as $value): ?>
+                        <option value="<?= $value->numero_documento ?>">
+                            <?= $value->nombres_cliente."-".$value->apellidos_cliente."/".$value->numero_documento ?>
+                        </option>
+                        <?php endforeach ?>
+                        ?>
+                    </select>
+                </div>
+            </div>
+        </div>
 
-        <select id="cedula">
-           <option value="">Seleccione cliente</option>
-            <?php foreach($resultado as $value): ?>
-            <option value="<?= $value->numero_documento ?>">
-                <?= $value->nombres_cliente."-".$value->apellidos_cliente."/".$value->numero_documento ?>
-            </option>
-            <?php endforeach ?>
-            ?>
-        </select>
         <input type="reset" value="Limpiar" id="limpiar_c">
 
         <br>
@@ -32,4 +39,5 @@
     $(document).ready(function() {
         $("#cedula").select2();
     });
+
 </script>
