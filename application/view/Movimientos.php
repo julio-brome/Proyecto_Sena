@@ -1,32 +1,51 @@
 <form method="post" action="<?= URL ?>movimientos/guardar">
-    <div id="margen">
-        <h2 id="titulo2">Movimientos</h2>
-        <select id="mov" name="mov" required>
-            <option value="">Seleccione movimiento</option>
-            <option value="baja">Dada de baja</option>
-            <option value="devolucion">Devolucion</option>
-        </select>
+    <h2 id="titulo2">Movimientos</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 form-group">
+                <label>Tipo de movimiento</label>
+                <select class="form-control" id="mov" name="mov" required>
+                    <option value="">Seleccione</option>
+                    <option value="baja">Dada de baja</option>
+                    <option value="devolucion">Devolucion</option>
+                </select>
+            </div>
 
-        <select name="producto" id="producto_mov" required>
-            <option value="">Seleccione producto</option>
-            <?php foreach($pro as $value): ?>
-            <option value="<?= $value->id_producto ?>">
-                <?= $value->nombre_producto ?>
-            </option>
-            <?php endforeach ?>
-        </select>
+            <div class="col-md-3 form-group">
+                <label>Producto</label>
+                <select class="form-control" name="producto" id="producto_mov" required>
+                    <option value="">Seleccione</option>
+                    <?php foreach($pro as $value): ?>
+                    <option value="<?= $value->id_producto ?>">
+                        <?= $value->nombre_producto ?>
+                    </option>
+                    <?php endforeach ?>
+                </select>
+            </div>
 
-        <input name="cantidad" id="cantidad_mov" type="number" placeholder="Cantidad" required>
-        <input name="descripcion" type="text" placeholder="Descripcion" id="descripcion_mv" maxlength="50" autocomplete="off" required> <br>
+            <div class="col-md-3 form-group">
+                <label>Cantidad</label>
+                <input type="number" class="form-control" name="cantidad" name="cantidad" id="cantidad_mov" autocomplete="off" required>
+            </div>
 
-        <input class="succes" type="submit" value="Guardar" id="guardar_mv">
-        <input id="reset_mov" type="reset" value="Limpiar">
-
-        <div class="table-responsive">
-            <table id="datos_mov"></table>
+            <div class="col-md-3 form-group">
+                <label>Descripcion</label>
+                <input class="form-control" name="descripcion" type="text" id="descripcion_mv" maxlength="50" autocomplete="off" required>
+            </div>
         </div>
+    </div>
 
-        <input type="button" value="Descargar a excel" id="enviar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 form-group">
+                <input class="succes" type="submit" value="Guardar" id="guardar_mv">
+                <input id="reset_mov" type="reset" value="Limpiar">
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table id="datos_mov"></table>
     </div>
 </form>
 
@@ -34,4 +53,5 @@
     $(document).ready(function() {
         $("#producto_mov").select2();
     });
+
 </script>
