@@ -59,13 +59,13 @@
 
 		</div><br><br>
 		
-		
+	<div class="container">
 		<div class ="col-sm-6 col-md-4 col-lg-4 col-sx-12">
 			<div class="form-group">
 					
 						<label for="TipoVenta">Tipo de venta : </label>
-						<input type="radio" required name="tipoVenta" id="credito" value= "credito">Crédito
-						<input type="radio" required name="tipoVenta" id="contado" value= "contado">Contado
+						<input type="radio" required ="true" name="tipoVenta" id="credito" value= "credito">Crédito
+						<input type="radio" required ="true" name="tipoVenta" id="contado" value= "contado">Contado
 
 
 
@@ -100,34 +100,35 @@
 
 				<label for="">Cantidad</label>
 				<input type="number" class="form-control" name="cantidad" required ="true" pattern ="|0-9|" class="form-control" id="txtCantidad">
-				</div>
 				
+				<br><br>
+				<button id="adicionar" class="btn btn-info float-right" type="button">Adicionar al pedido</button>
+				
+				<p>Productos en la Tabla:
+  					<div id="adicionados">
+
+					</div>
+				</p>
 		
-		
+				</div>
 		
 	
 
 
 
 
-
-
-			<div class="form-group col-sm-6 col-md-6"><br><br>
-				<div class="row">
-				<button id="adicionar" class="btn btn-info float-right" type="button">Adicionar al pedido</button>
-					<p>Productos en la Tabla:
-  					<div id="adicionados">
-
-					</div>
-					</p>
-				</div>
 			</div>
 		</div>
+
+	
+				
+				
+				
+		
 	</div>
 
-
 			
-					<div class="card bg-success text-black col-sm-9 col-md-9">
+					<div class="card bg-warning text-black col-sm-9 col-md-9">
 							<div class="card-body"><h5>Pedido     </h5>
 							<input type="hidden" name="estadoPedido" value="pendiente">
 							</div>
@@ -169,14 +170,14 @@
 
 
 
-				</div>
-			</div>
+				
 			<label for="observaciones">Observaciones :</label><br>
 			<textarea name="observaciones" id="observaciones" cols="60"></textarea>
 
-
+				</div>
 			<button type="submit" name="btnEnviar" class="btn btn-success float-right" >Guardar Pedido</button><br><br>
-			
+		
+			</div>
 	
 	</div>
 </form>
