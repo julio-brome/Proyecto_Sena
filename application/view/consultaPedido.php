@@ -28,9 +28,9 @@
 					<tr>
 						<td><?= $value->id_pedido?></td>
 						<td><?= $value->fecha_de_creacion?></td>
-						<td><?= $value->nombre.'  '.$value->apellido?></td>
+						<td><?= $value->nombres_cliente.'  '.$value->apellidos_cliente?></td>
 						<td><?= $value->valor_total?></td>
-						<td><?= $value->estado_de_pedido?></td>
+						<td><?= $value->estado_pedido?></td>
 						<td><button class= "btn btn-warning">Ver Detalle</button>
 						<button class= "btn btn-danger">Cambiar Estado</button></td>
 					</tr>

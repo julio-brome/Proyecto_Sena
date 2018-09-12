@@ -1,5 +1,5 @@
 <form action="<?= URL ?>pedido\guardar" method="POST" name="pedido" id="form_pedido">
-<div class="container">
+
 	<div class="container">
 
 		<div class="card bg-warning text-black col-sm-9 col-md-9 col-sx-12">
@@ -128,13 +128,12 @@
 	</div>
 
 			
-					<div class="card bg-warning text-black col-sm-9 col-md-9">
-							<div class="card-body"><h5>Pedido     </h5>
-							<input type="hidden" name="estadoPedido" value="pendiente">
-							</div>
-					</div>
-
-
+		<div class="card bg-warning text-black col-sm-9 col-md-9">
+			<div class="card-body"><h5>Pedido     </h5>
+				<input type="hidden" name="estadoPedido" value="0">
+			</div>
+		</div>
+			
     				<div class="row">
        					<div class="">
 
@@ -158,26 +157,25 @@
 					</div>
 
 
-			<div class="container">
-				<div class="row">
-
-
-
+			
+			
+				
 			<label for="t"><h3>Total:</h3></label>
 			<h3 id="gTotal">0</h3>
 			<input type="hidden" id="totalInput" value="" name="totales">
 
-
+				
+			
 
 
 				
 			<label for="observaciones">Observaciones :</label><br>
 			<textarea name="observaciones" id="observaciones" cols="60"></textarea>
 
-				</div>
+				<div class="container">
 			<button type="submit" name="btnEnviar" class="btn btn-success float-right" >Guardar Pedido</button><br><br>
 		
-			</div>
+				</div>
 	
 	</div>
 </form>

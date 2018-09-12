@@ -48,6 +48,8 @@
             $pedido->__SET("valor_total", $_POST["totales"]);
             $pedido->__SET("observaciones", $_POST["observaciones"]);
             $pedido->insertarPedido();
+
+            
             
             if($pedido){
 
@@ -77,7 +79,7 @@
                     }
                     
                 }
-                header("location: ".URL."view/consultaPedido");
+                header("location: ".URL."Login/menu");
             }
  
         }
