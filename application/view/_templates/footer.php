@@ -5,6 +5,7 @@
 <script type="text/javascript" src="<?= URL?>/public/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?= URL ?>/public/js/popper.min.js"></script>
 <script type="text/javascript" src="<?= URL ?>/public/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?= URL ?>/public/js/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript" src="<?= URL?>/public/select2/js/select2.min.js"></script>
 <script type="text/javascript" src="<?= URL?>/public/js/main.js"></script>
 <script type="text/javascript" src="<?= URL?>/public/js/metodos.js"></script>

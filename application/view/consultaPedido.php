@@ -1,9 +1,11 @@
-<div class="table-responsive">    
+
+<div class="table-responsive col-lg-12 col-md-12 col-sm-12 col-xs-12">   
+ 
     <div class="row">
 				<table id="example" class="table table-striped table-bordered " style= "width:100%">
 					<thead>
 						<tr>
-                            <th>ID PEDIDO</th>
+              <th>ID PEDIDO</th>
 							<th>FECHA</th>
 							<th>NOMBRE CLIENTE</th>
 							<th>VALOR TOTAL</th>
@@ -13,17 +15,8 @@
 						</tr>
 					</thead>
 					<tfoot>
-						<tr>
-							<th>ID PEDIDO</th>
-							<th>FECHA</th>
-							<th>NOMBRE CLIENTE</th>
-							<th>VALOR TOTAL</th>
-							<th>ESTADO DEL PEDIDO</th>
-							<th>ACCIONES</th>
-							
-						</tr>
-                    </tfoot>
-                    <tbody>
+				
+          <tbody>
 					<?php foreach($pedidos as $value): ?>
 					<tr>
 						<td><?= $value->id_pedido?></td>
@@ -66,9 +59,19 @@
 		</table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">C</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+$(document).ready(function() {
+  $('#example').DataTable({
+    "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+    }
+  });
+});
+</script>

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= URL ?>/public/css/style.css">
+    <link rel="stylesheet" href="<?= URL ?>/public/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= URL ?>/public/css/alerta.css">
     <link rel="stylesheet" href="<?= URL ?>/public/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?= URL ?>/public/fontawesome-free-5.3.1-web/css/all.min.css">
