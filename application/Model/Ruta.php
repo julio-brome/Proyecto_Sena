@@ -27,8 +27,8 @@ class ruta extends Model{
     public function crear(){
         
         
-        $sql = "INSERT INTO ruta (nombre_ruta, id_barrio, id_municipio) VALUES (?, ?, ?)";
-        $stm = $this->db->prepare($sql);
+    
+        $stm = $this->db->prepare("CALL Guardar_Rutas(?,?,?)");
         $stm->bindParam(1, $this->nombre_ruta);
         $stm->bindParam(2, $this->id_barrio);
         $stm->bindParam(3, $this->id_municipio);
@@ -38,7 +38,7 @@ class ruta extends Model{
     }
 
     public function modificar(){
-        $sql = "UPDATE ruta SET nombre_ruta = ?, fk_id_barrio = ?, fk_id_municipio = ?  WHERE id_ruta = ?";
+        $sql = "UPDATE ruta SET nombre_ruta = ?, id_barrio = ?, id_municipio = ?  WHERE id_ruta = ?";
         $stm = $this->db->prepare($sql);
        
         $stm->bindParam(1, $this->nombre_ruta);

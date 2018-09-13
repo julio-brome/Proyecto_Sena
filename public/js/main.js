@@ -528,8 +528,11 @@ $(document).ready( function () {
     $('#rruta').DataTable();
 } );
 
+//listar barrios por ruta
 $(document).on('change','#ddlMuni',function(){
     //var valor = $('#ddlMuni'.val());
     var mun = $('#ddlMuni').val();
     buscarBarrios($(this).val());
 })
+
+
