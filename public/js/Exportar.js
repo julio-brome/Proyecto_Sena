@@ -7,4 +7,7 @@ function descargarExcel() {
     buscar_detalle();
     buscar_movimientos();
     buscar_usuario();
+    buscar_producto();
+    mensaje = "Reporte generado correctamente";
+    ver_success();
 }
