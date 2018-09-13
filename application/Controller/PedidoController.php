@@ -62,7 +62,7 @@
                     $pedido->__SET("id_pedido", $ultima->ultima);
                     $pedido->__SET("id_producto", $_POST["idProducto"][$i]);
                     $pedido->__SET("cantidad", $_POST["cantidades"][$i]);
-                    $pedido->__SET("subtotal", $_POST["subtotal"][$i]);
+                    $pedido->__SET("subtotal_pedido", $_POST["subtotal"][$i]);
 
                     try{
                         if($pedido->insertarDetallePedido()){

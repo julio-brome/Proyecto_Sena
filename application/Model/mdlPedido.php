@@ -6,13 +6,14 @@ use Mini\Core\Model;
 
 class mdlPedido extends Model {
 
+    
     private $id_pedido;
     private $id_producto;
     private $cantidad;    
-    private $subtotal;
+    private $subtotal_pedido;
     private $id_cliente_pedido;
-    private $estado_de_pedido;
-    private $forma_de_pago;
+    private $estado_pedido;
+    private $tipo_venta;
     private $valor_total;
     private $observaciones;
     
@@ -46,7 +47,7 @@ class mdlPedido extends Model {
         $stm->bindParam(1, $this->id_pedido);
         $stm->bindParam(2, $this->id_producto);
         $stm->bindParam(3, $this->cantidad);
-        $stm->bindParam(4, $this->subtotal);
+        $stm->bindParam(4, $this->subtotal_pedido);
         return $stm->execute();
     }
 
