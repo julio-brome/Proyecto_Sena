@@ -5,9 +5,7 @@
 #modificar_usuario,
 .alert,
 #modificar_cliente,
-#modificar_proveedor,
-#form_editar 
-{
+#modificar_proveedor {
     display: none;
 }
 

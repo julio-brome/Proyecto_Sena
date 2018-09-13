@@ -11,12 +11,7 @@ class RutaController{
     public function index(){
 
         $rutas = new Ruta();
-        $ruta = $rutas->listar();
-
-        $rut = $rutas->listarMunicipio();
-        
-    
-        $ba = $rutas->listar_municipio_barrioo();
+        $rutas = $rutas->listar();
         //require APP."view/_templates/header.php";
         require APP."view/Ruta/index.php";
         //require APP."view/_templates/footer.php";
@@ -48,12 +43,14 @@ class RutaController{
 
 
 
-    public function editar(){
-        $rutas = new Ruta();
-        $rutas->__SET("id_ruta", $_POST['id']);
+    public function editar($id_ruta){
+        $rutas = new ruta();
+        $rutas->__SET("id_ruta", $id_ruta);
         $r = $rutas->editar();
+        $Municipio = new municipio();
+        $municipios = $Municipio->listar();
 
-        echo json_encode($r);
+        require APP."view/ruta/editar.php";
     }
     public function guardar(){
          $rutas = new Ruta();
@@ -80,17 +77,17 @@ class RutaController{
         
 
         if($rutas->cambiar_estado()){
-            $_SESSION["RESPUESTA"] = "Se cambio";
+            $_SESSION["mensaje"] = "Se cambio";
         } else {
-            $_SESSION["RESPUESTA"] = "No se cambio";
+            $_SESSION["mensaje"] = "No se cambio";
         }
-        $_SESSION["LOCAL"] = "8";
-        header("location: ".URL."Login/menu"); 
+
+        header("location: ".URL."ruta/index"); 
        }
 
        public function modificarr(){
          
-        $rutas = new Ruta();
+        $rutas = new ruta();
         $rutas->__SET("nombre_ruta", $_POST["txtNombre"]);
         $rutas->__SET("id_municipio", $_POST["ddlMuni"]);
         $rutas->__SET("id_barrio", $_POST["ddlbarri"]);
@@ -100,12 +97,12 @@ class RutaController{
         // $ruta->crear();
 
        if($rutas->modificar()){
-           $_SESSION["RESPUESTA"] = "Modificado";
+           $_SESSION["mensaje"] = "Modificado";
        } else {
-           $_SESSION["RESPUESTA"] = "No se modificado";
+           $_SESSION["mensaje"] = "No se modificado";
        }
-       $_SESSION["LOCAL"] = "8";
-       header("location: ".URL."Login/menu"); 
+     
+       header("location: ".URL."ruta/index"); 
    }
 
    public function consultar_barrio(){
