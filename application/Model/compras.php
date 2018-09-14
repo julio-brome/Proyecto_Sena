@@ -28,10 +28,7 @@ public function __GET($atributo){
    
 
    public function listar($id_proveedor, $fechaInicio, $fechaFin){
-       $sql = "SELECT c.*, p.id_proveedor, p.nombre_empresa 
-       from compra c 
-       INNER JOIN proveedor p on (c.id_proveedor = p.id_proveedor) 
-       where p.id_proveedor like ? AND fecha_de_compra BETWEEN ? AND ? ORDER BY fecha_de_compra DESC";
+       $sql = "CALL SP_consultarCompra(?,?,?)";
 
        $stm = $this->db->prepare($sql);
        $stm->bindParam(1, $id_proveedor); 
@@ -43,38 +40,34 @@ public function __GET($atributo){
 
 
 public function listarMaestro(){
-    $sql = "SELECT * from compra c ORDER BY id_compra asc ";
+    $sql = "CALL SP_listarCompras()";
     $stm = $this->db->prepare($sql);
     $stm->execute();
     return $stm->fetchAll();        
 }
 
-public function crear(){
-$sql = " INSERT INTO compra (total, id_proveedor) VALUES (?, ?)";
-$stm = $this->db->prepare($sql); 
-$stm->bindParam(1, $this->total); 
-$stm->bindParam(2, $this->id_proveedor); 
-return $stm->execute(); 
+// public function crear(){
+// $sql = " INSERT INTO compra (total, id_proveedor) VALUES (?, ?)";
+// $stm = $this->db->prepare($sql); 
+// $stm->bindParam(1, $this->total); 
+// $stm->bindParam(2, $this->id_proveedor); 
+// return $stm->execute(); 
 
-}
+// }
 
-public function modificar(){
-    $sql = " UPDATE compra SET id_proveedor = ?, id_producto = ?, total = ?, cantidad = ?, subtotal = ? WHERE id_compra = ?";
-    $stm = $this->db->prepare($sql); 
-    $stm->bindParam(1, $this->id_proveedor); 
-    $stm->bindParam(2, $this->id_producto); 
-    $stm->bindParam(3, $this->total);
-    $stm->bindParam(4, $this->id_compra);
-    return $stm->execute(); 
+// public function modificar(){
+//     $sql = " UPDATE compra SET id_proveedor = ?, id_producto = ?, total = ?, cantidad = ?, subtotal = ? WHERE id_compra = ?";
+//     $stm = $this->db->prepare($sql); 
+//     $stm->bindParam(1, $this->id_proveedor); 
+//     $stm->bindParam(2, $this->id_producto); 
+//     $stm->bindParam(3, $this->total);
+//     $stm->bindParam(4, $this->id_compra);
+//     return $stm->execute(); 
      
-    }
+//     }
 
     public function ConsultarPorId(){
-        $sql = "SELECT c.id_compra as id_compram, c.fecha_de_compra, c.total_compra, c.id_proveedor, pro.nombre_empresa, dcp.*,p.* from compra c 
-        INNER JOIN detalle_compra_producto dcp on (c.id_compra = dcp.id_compra) 
-        INNER JOIN producto p on (dcp.id_producto = p.id_producto) 
-        left JOIN proveedor pro on (c.id_proveedor = pro.id_proveedor)
-        WHERE c.id_compra = ?";
+        $sql = "CALL SP_consultarDetalleCompra(?)";
         $stm = $this->db->prepare($sql); 
         $stm->bindParam(1, $this->id_compra); 
         $stm->execute(); 
@@ -82,15 +75,15 @@ public function modificar(){
         
         }
 
-        public function cambiarEstado(){
-            $sql = " UPDATE compra SET estado = ? WHERE id_compra = ?";            
-            $stm = $this->db->prepare($sql);             
-            $stm->bindParam(1, $this->estado); 
-            $stm->bindParam(2, $this->id_compra); 
+        // public function cambiarEstado(){
+        //     $sql = " UPDATE compra SET estado = ? WHERE id_compra = ?";            
+        //     $stm = $this->db->prepare($sql);             
+        //     $stm->bindParam(1, $this->estado); 
+        //     $stm->bindParam(2, $this->id_compra); 
             
-            return $stm->execute(); 
+        //     return $stm->execute(); 
              
-            }
+        //     }
 
 public function guardarEncabezado()
 {
