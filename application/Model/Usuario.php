@@ -15,6 +15,10 @@ class Usuario extends Model {
     private $usuario;
     private $clave;
     private $estado;
+    private $correo_electronico;
+    private $codigo;
+    private $p_fecha_recuperacion;
+
 
     public function __SET($attr, $valor){
         $this->$attr = $valor;
@@ -75,5 +79,70 @@ class Usuario extends Model {
         $stm->bindParam(1,$this->id);
         $stm->bindParam(2,$this->estado);
         return $stm->execute();
+    }
+
+    /**
+     * Obtener una persona con correo Electronico
+     * @param string $p_correoElectronico
+     */
+    public function getUserWithEmail(){
+        $stm = $this->db->prepare("CALL Get_usuario_mail(?)");
+        $stm->bindParam(1,$this->correo_electronico);
+        return $stm->execute();
+
+        try {
+
+            $query = $this->db->prepare($sql);
+            $query->execute($parameters);
+            return ($query->rowcount() ? $query->fetch() : false);
+
+        } catch (PDOException $e) {
+
+            $logModel = new Log();
+            $sql = Helper::debugPDO($sql, $parameters);
+            $logModel->addLog($sql, 'User', $e->getCode(), $e->getMessage());
+            return false;
+
+        } catch (Exception $e) {
+            
+            $logModel = new Log();
+            $sql = Helper::debugPDO($sql, $parameters);
+            $logModel->addLog($sql, 'User', $e->getCode(), $e->getMessage());
+            return false;
+        }
+    }
+
+
+    /**
+     * Cambiar la contraseña y actualizar el campo para verificar al entrar
+     * @param string $p_correoElectronico Correo Electrónico
+     * @param string $p_codigo Código que se enviara al correo electronico y luego se validara
+     * @param string $p_fechaRecuperacion Fecha para validar que el código este valido (24 horas)
+     */
+    public function recoverPassword(){
+        $stm = $this->db->prepare("CALL Recuperar_clave(?,?,?)");
+        $stm->bindParam(1,$this->correo_electronico);
+        $stm->bindParam(2,$this->codigo);
+        $stm->bindParam(3,$this->fecha_recuperacion);
+
+        try {
+
+            $query = $this->db->prepare($sql);
+            return $query->execute($parameters);
+
+        } catch (PDOException $e) {
+
+            $logModel = new Log();
+            $sql = Helper::debugPDO($sql, $parameters);
+            $logModel->addLog($sql, 'User', $e->getCode(), $e->getMessage());
+            return false;
+
+        } catch (Exception $e) {
+            
+            $logModel = new Log();
+            $sql = Helper::debugPDO($sql, $parameters);
+            $logModel->addLog($sql, 'User', $e->getCode(), $e->getMessage());
+            return false;
+        }
     }
 }

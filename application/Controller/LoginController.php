@@ -57,20 +57,20 @@ class LoginController {
     public function sendRecoveryCode()
     {
         if (isset($_POST["txtCorreoElectronico"]) && trim($_POST["txtCorreoElectronico"] != '')) {
-            $correoElectronico = $_POST['txtCorreoElectronico'];
+            $correo_electronico = $_POST['txtCorreoElectronico'];
             $codigo = $this->createRandomCode();
-            $fechaRecuperacion = date("Y-m-d H:i:s", strtotime('+24 hours'));
+            $fecha_recuperacion = date("Y-m-d H:i:s", strtotime('+24 hours'));
             $userModel = new User();
-            $user = $userModel->getUserWithEmail($correoElectronico);
+            $user = $userModel->getUserWithEmail($correo_electronico);
 
             if ($user === false) {
                 $mensaje = 'El correo electrónico no se encuentra registrado en el sistema.';
                 $this->render('login/recover', 'Recuperar Contraseña', array('mensaje' => $mensaje), false);
             } else {
-                $respuesta = $userModel->recoverPassword($correoElectronico, $codigo, $fechaRecuperacion);
+                $respuesta = $userModel->recoverPassword($correo_electronico, $codigo, $fecha_recuperacion);
             
                 if ($respuesta) {
-                    $this->sendMail($correoElectronico, $user->nombreCompleto, $codigo);
+                    $this->sendMail($correo_electronico, $user->nombreCompleto, $codigo);
                     
                     $mensaje = 'Se ha enviado un correo electrónico con las instrucciones para el cambio de tu contraseña. Por favor verifica la información enviada.';
                     $this->render('login/recover', 'Recuperar Contraseña', array('mensaje' => $mensaje), false);
@@ -100,10 +100,10 @@ class LoginController {
         }
     }
 
-    public function sendMail($correoElectronico, $nombre, $codigo)
+    public function sendMail($correo_electronico, $nombres, $codigo)
     {
         $template = file_get_contents(APP.'view/login/template.php');
-        $template = str_replace("{{name}}", $nombre, $template);
+        $template = str_replace("{{name}}", $nombres, $template);
         $template = str_replace("{{action_url_2}}", '<b>http:'.URL.'login/newPassword/'.$codigo.'</b>', $template);
         $template = str_replace("{{action_url_1}}", 'http:'.URL.'login/newPassword/'.$codigo, $template);
         $template = str_replace("{{year}}", date('Y'), $template);
@@ -146,4 +146,75 @@ class LoginController {
     {
         require APP.'view/Login/recover.php';
     }
+
+    public function newPassword($code = null)
+    {
+        if (isset($code)) {
+            // Instance new Model (Song)
+            $userModel = new User();
+            // do deleteSong() in model/model.php
+            $user = $userModel->getUserWithCode($code);
+
+            if ($user === false) {
+                $mensaje = 'El código de recuperación de contraseña no es valido. Por favor intenta de nuevo.';
+                $this->render('login/recover', 'Recuperar Contraseña', array('mensaje' => $mensaje), false);
+            } else {
+                $current = date("Y-m-d H:i:s");
+
+                if (strtotime($current) > strtotime($user->fechaRecuperacion)) {
+                    $mensaje = 'El código de recuperación de contraseña ha expirado. Por favor intenta de nuevo.';
+                    $this->render('login/recover', 'Recuperar Contraseña', array('mensaje' => $mensaje), false);
+                } else {
+                    $this->render('login/newPassword', 'Nueva Contraseña', array('user' =>  $user), false);
+                }
+            }
+        } else {
+            header('location: ' . URL);
+        }
+    }
+
+    public function updatePasswordWithCode()
+    {
+        if (isset($_POST['btnGuardar'])) {
+            $idUsuario = $_POST['txtIdUsuario'];
+            $contrasena = $_POST['txtContrasena'];
+            $repetirContrasena = $_POST['txtRepetirContrasena'];
+
+            if ($contrasena != $repetirContrasena) {
+
+                $user = new stdClass();
+                $user->idUsuario = $idUsuario;
+
+                $mensaje = 'Las contraseñas no coinciden. Por favor, verifique la información.';
+                $this->render('login/newPassword', 'Registrar Usuario', array('user' => $user, 'mensaje' => $mensaje), false);
+                return;
+
+            } else {
+                $userModel = new User();
+
+                $contrasena = password_hash($_POST['txtContrasena'], PASSWORD_BCRYPT);
+
+                $resultado = $userModel->updatePasswordFromRecover($idUsuario, $contrasena);
+                if ($resultado != false) {
+                    
+                    $mensaje = 'Su contraseña ha sido cambiada con éxito.';
+                    $this->render('login/index', 'Iniciar Sesion', array('mensaje' => $mensaje), false);
+                    return;
+
+                } else {
+                    $user = new stdClass();
+                    $user->idUsuario = $idUsuario;
+                    $mensaje = 'Ocurrio un error al intentar cambiar la contraseña. Por favor, verifique la información.';
+                    $this->render('login/newPassword', 'Registrar Usuario', array('user' => $user, 'mensaje' => $mensaje), false);
+                    return;
+                }
+            }
+        }else{
+            header('location:'.URL);
+        }
+        
+    }
+
+
+
 }

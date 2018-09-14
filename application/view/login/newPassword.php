@@ -1,35 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Variedades y Comunicaciones |
-        <?php echo $title; ?>
-    </title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link href="<?php echo URL; ?>login_libs/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="<?php echo URL; ?>login_libs/login.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="<?= URL ?>/public/css/bootstrap-yeti.css">
+    <link rel="stylesheet" href="<?= URL ?>/public/css/Login.css">
+    <link rel="stylesheet" href="<?= URL ?>/public/css/alerta.css">
+    <link rel="stylesheet" href="<?= URL ?>/public/font-awesome/css/font-awesome.min.css">
 
 </head>
 
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="popupunder alert alert-success fade in"><strong>Success : </strong> The update process has been completed successfull!</div>
+        </div>
+    </div>
 
-    <div class="wrapper">
-        <div id="formContent">
-            <!-- Tabs Titles -->
+    <div class="container">
+        <div class="row">
+            <div class="popupunder alert alert-fail fade in"><strong>Success : </strong> The update process has been completed successfull!</div>
+        </div>
+    </div>
 
-            <div>
-                <h4>
-                    <b>Variedades</b> y comunicaciones
-                </h4>
-            </div>
-
-            <!-- Icon -->
-            <div>
-                <img src="<?php echo URL; ?>login_libs/lock.png" id="icon" alt="User Icon" />
-            </div>
+    <div class="row">
+        <div class="row-fluid">
+            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3" style="margin-top: 100px;">
+                <div class="panel-login">
+                    <div class="panel-body" id="principal">
+                        <form class="form-signin" id="formlogin">
+                            <div class="col-md-6  col-md-offset-3">
+                                <img src=" <?= URL ?>/public/img/logoSmartDistri.png" class="img-responsive">
+                            </div>
 
             <!-- Login Form -->
             <form method="POST" action="<?php echo URL; ?>login/updatePasswordWithCode">

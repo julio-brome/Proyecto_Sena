@@ -47,7 +47,7 @@
                                 </div>
 
                                 <div class="input-group" id="campo1"><span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                                    <input type="text" name="usu" id="user" class="form-control form-login btn-block" placeholder="Correo" autofocus />
+                                    <input type="email" name="txtCorreoElectronico" id="txtCorreoElectronico" class="form-control form-login btn-block" placeholder="Correo" autofocus />
                                 </div>
 
                                 <br>
