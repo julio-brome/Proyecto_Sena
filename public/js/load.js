@@ -141,3 +141,11 @@ $(document).on('click', '#cr', function () {
     $('#contenido').load(uri + '/Ruta/crear');
 
 });
+
+//boton editar ruta
+$(document).on('click', '#tedi', function () {
+    var id = $(this).val();
+    $('#form_editar').show();
+    $('#tabla_rutas').hide();
+    editarBarrios(id);
+});
