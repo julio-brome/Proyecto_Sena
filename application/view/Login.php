@@ -45,7 +45,7 @@
                                 </div>
 
                                 <div class="input-group" id="campo1"><span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                    <input type="text" name="usu" id="user" class="form-control form-login btn-block" placeholder="Usuario" autofocus />
+                                    <input type="text" name="usu" id="user" class="form-control form-login btn-block" placeholder="Usuario" autocomplete="off" autofocus />
                                 </div>
                                 <br>
                                 <div class="errores" id="mensaje2">
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="input-group" id="campo2">
                                     <span class="input-group-addon"><i class="fa fa-lock " aria-hidden="true"></i></span>
-                                    <input type="password" name="pwd" id="key" class="form-control form-login btn-block" placeholder="Contraseña" />
+                                    <input type="password" name="pwd" id="key" class="form-control form-login btn-block" placeholder="Contraseña" autocomplete="off" />
                                 </div>
                                 <br>
                                 <div class="col-lg-4 col-lg-offset-8">

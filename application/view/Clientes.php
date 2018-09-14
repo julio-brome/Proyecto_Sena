@@ -58,7 +58,7 @@
             <div class="col-md-3 form-group">
                 <label>Ruta</label>
                 <select class="form-control" id="select_r" name="ide_r" required>
-                    <option>Seleccione</option>
+                    <option value="">Seleccione</option>
                     <?php foreach($resultado as $value): ?>
                     <option value="<?= $value->id_ruta ?>">
                         <?= $value->nombre_ruta ?>
