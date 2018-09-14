@@ -149,6 +149,14 @@ $(document).on('click', '#cr', function () {
 
 });
 
+
+//boton editar ruta
+$(document).on('click', '#tedi', function () {
+    var id = $(this).val();
+    $('#form_editar').show();
+    $('#tabla_rutas').hide();
+    editarBarrios(id);
+
 $(document).on('click', '#crearPedido', function () {
     $('#contenido').html("");
     $('#contenido').load(uri + '/Pedido/index');
@@ -170,4 +178,5 @@ $(document).on('click', '#consultaPedido', function () {
 $(document).on('click', '#recu', function () {
     $('#contenido').html("");
     $('#contenido').load(uri + 'login/recover');
+
 });
