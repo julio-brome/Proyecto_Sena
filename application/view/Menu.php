@@ -72,6 +72,11 @@ if(isset ($_SESSION['USUARIO'])){ ?>
                 </li>
                 <li>
                     <a id="compras" href="#"><i class="fa fa-shopping-cart fa-2x"></i> Compras</a>
+                    <ul>
+                    <li>
+                    <a id="ReporteCompras" href="#"><i class="fa fa-shopping-cart fa-2x"></i> Reporte Compras</a>
+                    </li>
+                    </ul>
                 </li>
                 <li>
                     <a id="pedidos" href="#"><i class="fa fa-book fa-2x"></i> Pedidos</a>
