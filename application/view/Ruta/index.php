@@ -74,5 +74,6 @@
            <?php endforeach; ?> 
        </tbody>
      </table>
+     <input class="succes" id="cr" type="submit" value="Crear Ruta">
 </div>
 

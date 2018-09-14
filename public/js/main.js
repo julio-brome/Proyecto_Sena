@@ -527,7 +527,7 @@ $(document).on('click', '#enviar', function () {
 $(document).ready( function () {
     $('#rruta').DataTable();
 } );
-
+//rutas
 $(document).on('change','#ddlMuni',function(){
     //var valor = $('#ddlMuni'.val());
     var mun = $('#ddlMuni').val();
