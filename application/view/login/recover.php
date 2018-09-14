@@ -47,15 +47,17 @@
                                 </div>
 
                                 <div class="input-group" id="campo1"><span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                                    <input type="email" name="txtCorreoElectronico" id="txtCorreoElectronico" class="form-control form-login btn-block" placeholder="Correo" autofocus />
+                                    <input type="text" name="usu" id="user" class="form-control form-login btn-block" placeholder="Correo" autofocus />
                                 </div>
 
                                 <br>
+                                <form method="POST" action="<?php echo URL; ?>login/sendRecoveryCode">
                                 <div class="col-lg-4 col-lg-offset-8">
                                     <div class="form-group" id="campoapaterno">
                                         <button id="entrar" type="submit" class="btn btn-primary btn-block">Enviar contraseña</button>
                                     </div>
                                 </div>
+                                </form>
                                 <br>
                                 <br>
                                 <br>
