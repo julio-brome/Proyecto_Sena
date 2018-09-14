@@ -115,8 +115,7 @@ $salida.="</tbody></table></div>";
     public function guardar(){
         $producto = new Producto();
         $detalle = new Detalle();
-        
-        if(isset($_POST['producto']) && isset($_POST['precio']) && isset($_POST['existencia']) && isset($_POST['stock']) && isset($_POST['idc']) && isset($_POST['idp'])) {
+
         $producto->__SET("nombre", $_POST["producto"]);
         $producto->__SET("precio_venta", $_POST["precio"]);
         $producto->__SET("existencia", $_POST["existencia"]);
@@ -136,14 +135,10 @@ $salida.="</tbody></table></div>";
         }else {
             echo "No se guardo";
         }
-        }else {
-            echo "No llegaron datos";
-        }
     }
     
     public function estado_producto(){
         $producto = new Producto();
-        if(isset($_POST['id']) && isset($_POST['estado'])) {
         $producto->__SET("id", $_POST["id"]);
         $producto->__SET("estado", $_POST["estado"]);
             
@@ -154,39 +149,30 @@ $salida.="</tbody></table></div>";
             echo "no";
         }
     }
-    }
         
     public function consultar_producto(){
         $producto = new Producto();
-        if(isset($_POST['producto'])) {
         $producto->__SET("nombre", $_POST["producto"]);
         $existe = $producto->buscar_producto();
         
-            if(empty($existe)){
+        if(empty($existe)){
             echo "no";
-            }else{
-            echo "El producto ya existe";
-            }
         }else{
-            echo "No llegaron datos";
+            echo "El producto ya existe";
         }
-    
     }
     
     public function editar(){
         $producto = new Producto();
-        
-        if(isset($_POST['id'])){
+
         $producto->__SET("id", $_POST['id']);
         $p = $producto->consultar(); 
         echo json_encode($p,JSON_FORCE_OBJECT);    
-        }
-}
+    }
+
     
     public function modificar(){
         $producto = new Producto();
-        
-        if(isset($_POST['id']) &&isset($_POST['producto']) && isset($_POST['precio']) && isset($_POST['existencia']) && isset($_POST['stock']) && isset($_POST['idc'])) {
         $producto->__SET("nombre", $_POST["producto"]);
         $producto->__SET("id", $_POST["id"]);
         $producto->__SET("precio_venta", $_POST["precio"]);
@@ -199,9 +185,6 @@ $salida.="</tbody></table></div>";
         }else {
             echo "no";
         }
-        }else {
-            echo "No llegaron datos";
-        }
     }
     
     public function agotados(){
@@ -209,10 +192,10 @@ $salida.="</tbody></table></div>";
         $productos = $producto->listar_agotados();
         $salida="";
 
-if(empty($productos)){
-    $salida.="No hay registros";
-}else {
-$salida.="<div class='table-responsive'><table class='table' id='table-ver'>
+        if(empty($productos)){
+            $salida.="No hay registros";
+        }else {
+            $salida.="<div class='table-responsive'><table class='table' id='table-ver'>
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -221,7 +204,7 @@ $salida.="<div class='table-responsive'><table class='table' id='table-ver'>
             </tr>
             </thead>
             <tbody>";
-foreach($productos as $value):
+            foreach($productos as $value):
                 $salida.="<tr>
                 <td>
                     ".$value->nombre_producto."
@@ -232,12 +215,13 @@ foreach($productos as $value):
                 <td>
                     ".$value->stock_minimo."
                 </td>
-    </tr>";
-endforeach;
-$salida.="</tbody></table></div>";
+        </tr>";
+            endforeach;
+            $salida.="</tbody></table></div>";
 
     }
         echo $salida;
     }
 
+    
 }

@@ -48,6 +48,10 @@ function traer() {
 
     } else if ($('#carga').val() == "7") {
         $('#contenido').html("");
+        $('#contenido').load(uri + '/Pedido/consultaPedido', function () {
+            ponerPrecio();
+            direccion();  
+        });
 
     } else if ($('#carga').val() == "8") {
         $('#contenido').html("");
@@ -116,6 +120,9 @@ $(document).on('click', '#rutas', function () {
 
 $(document).on('click', '#pedidos', function () {
     $('#contenido').html("");
+    $('#contenido').load(uri + '/Pedido/index');
+    ponerPrecio();
+    direccion();
 });
 
 $(document).on('click', '#compras', function () {
@@ -142,10 +149,34 @@ $(document).on('click', '#cr', function () {
 
 });
 
+
 //boton editar ruta
 $(document).on('click', '#tedi', function () {
     var id = $(this).val();
     $('#form_editar').show();
     $('#tabla_rutas').hide();
     editarBarrios(id);
+
+$(document).on('click', '#crearPedido', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri + '/Pedido/index');
+    ponerPrecio();
+    direccion();
+
+});
+
+$(document).on('click', '#consultaPedido', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri + '/Pedido/consultaPedido');
+    ponerPrecio();
+    direccion();
+
+});
+
+//prueba click en olvido contraseña
+
+$(document).on('click', '#recu', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri + 'login/recover');
+
 });

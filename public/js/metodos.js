@@ -718,23 +718,23 @@ function limpiar(){
         });
 }
 
-//listar barrios por municipios
-function buscarBarrios(consulta){
-    $.ajax({
-        url: uri+ '/Ruta/consultar_barrio',
-        type:'POST',
-        datatype:'HTML',
-        data:{
-            id:consulta,
-        },
-         })
-         .done(function(datos){
-             $('#ddlbarri').html(datos);
-         })
+function ponerPrecio(elemento){
+    var valor = $("#ddlProducto").val();
+    var precio = $("#ddlProducto [value='"+valor+"']").attr("precio");
+    var cantidades = $("#ddlProducto [value='"+valor+"']").attr("cantidad");
+    $("#pPrecio").text(precio);
+    $("#cCantidades").text(cantidades);
+}
 
-         .fail(function(){
-             console.log("error");
-         });
+function direccion(elemento){
+    var direcc = $("#ddlCliente").val();
+    var tel = $("#ddlCliente").val();        
+    var dato = $("#ddlCliente [value='"+direcc+"']").attr("direc");
+    $("#dDir").text(dato);
+    var dato2 = $("#ddlCliente [value='"+tel+"']").attr("tel");    
+    $("#tTel").text(dato2);
+
+
 }
 
 //ediar barrios

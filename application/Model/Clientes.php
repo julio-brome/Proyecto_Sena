@@ -86,4 +86,12 @@ class Clientes extends Model {
         $stm->execute();
         return $stm->fetchAll();
     }
+
+    public function listar_cliente_pedido(){
+        $sql = "CALL SP_ListarCliente () ";
+        $stm = $this->db->prepare($sql);
+        $stm->execute();
+        return $stm->fetchAll();
+    }
+
 }

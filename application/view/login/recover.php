@@ -33,9 +33,11 @@
                                 <img src=" <?= URL ?>/public/img/logoSmartDistri.png" class="img-responsive">
                             </div>
                             <br>
-                            <div class="col-md-9">
-                                <h4 class="color-light">Bienvenido</h4>
-                                <p class="color-light">Ingresa tus credenciales.</p>
+                            <div class="col-md-12">
+                                <!-- <h4 class="color-light">Bienvenido</h4> -->
+                                <br>
+                                <br>
+                                <p class="color-light">Ingresa tu correo electronico.</p>
                             </div>
                             <br>
                             <div class="col-md-12">
@@ -44,27 +46,21 @@
                                     <p class="text-danger">Introduce tu usuario.</p>
                                 </div>
 
-                                <div class="input-group" id="campo1"><span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                    <input type="text" name="usu" id="user" class="form-control form-login btn-block" placeholder="Usuario" autocomplete="off" autofocus />
+                                <div class="input-group" id="campo1"><span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                                    <input type="text" name="usu" id="user" class="form-control form-login btn-block" placeholder="Correo" autofocus />
                                 </div>
-                                <br>
-                                <div class="errores" id="mensaje2">
-                                    <p class="text-danger">Introduce tu contraseña.</p>
-                                </div>
-                                <div class="input-group" id="campo2">
-                                    <span class="input-group-addon"><i class="fa fa-lock " aria-hidden="true"></i></span>
-                                    <input type="password" name="pwd" id="key" class="form-control form-login btn-block" placeholder="Contraseña" autocomplete="off" />
-                                </div>
+
                                 <br>
                                 <div class="col-lg-4 col-lg-offset-8">
                                     <div class="form-group" id="campoapaterno">
-                                        <button id="entrar" type="submit" class="btn btn-primary btn-block">Ingresar</button>
+                                        <button id="entrar" type="submit" class="btn btn-primary btn-block">Enviar contraseña</button>
                                     </div>
                                 </div>
-                                <br> <br> <br>
+                                <br>
+                                <br>
+                                <br>
                                 <div class="col-lg-8 col-lg-offset-4" style="margin:center">
-
-                                    <a class="underlineHover" id="recu" href="<?php echo URL; ?>login/recover">¿Olvidaste la contraseña?</a>
+                                    <a class="underlineHover" href="<?php echo URL; ?>login">Volver a iniciar sesión</a>
                                 </div>
                             </div>
                         </form>
@@ -73,6 +69,7 @@
             </div>
         </div>
     </div>
+
     <script>
         var uri = "<?=URL?>";
 

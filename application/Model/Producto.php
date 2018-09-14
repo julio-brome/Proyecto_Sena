@@ -92,5 +92,11 @@ class Producto extends Model {
         return $stm->fetchAll();
     }
 
+    public function listar(){
+        $sql = "CALL SP_ListarProducto () ";
+        $stm = $this->db->prepare($sql);
+        $stm->execute();
+        return $stm->fetchAll();
+    }
 
 }

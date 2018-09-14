@@ -125,12 +125,9 @@ class ProveedorController {
 
     public function editar(){
         $proveedor = new Proveedor();
-
-        if(isset($_POST['id'])){
         $proveedor->__SET("id", $_POST['id']);
         $p = $proveedor->consultar_proveedor();
         echo json_encode($p,JSON_FORCE_OBJECT);
-        }
     }
 
     public function modificar (){
@@ -156,10 +153,8 @@ class ProveedorController {
 
     public function estado_proveedor(){
         $proveedor = new Proveedor();
-        if(isset($_POST['id']) && isset($_POST['estado'])) {
         $proveedor->__SET("id", $_POST["id"]);
         $proveedor->__SET("estado", $_POST["estado"]);
-
 
         if($proveedor->cambiar_estado()){
             echo "si";
@@ -167,5 +162,5 @@ class ProveedorController {
             echo "no";
         }
     }
-    }
+
 }

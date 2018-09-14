@@ -18,7 +18,7 @@ body {
     margin: 10px 20px 10px 0px;
     background-color: #fff !important;
     padding: 10px;
-    min-height: 684px;
+    min-height: 678.5px;
 }
 
 .text-center {
@@ -275,6 +275,7 @@ p {
 
 .sidebar-collapse > .nav > li > a {
     padding: 15px 10px;
+    color: #b4b4b4;
 }
 
 .sidebar-collapse > .nav > li {
