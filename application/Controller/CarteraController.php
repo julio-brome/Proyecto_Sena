@@ -10,6 +10,8 @@ class CarteraController {
     public function index(){
         if(isset($_SESSION['USUARIO'])){
             $clientes = new Clientes();
+            $clientes->__SET("nombres", "");
+            $clientes->__SET("id_ruta", "");
             $resultado= $clientes->listar();
         }else {
             header("location: ".URL."Login/menu");
@@ -20,9 +22,7 @@ class CarteraController {
     }
     
     public function buscar(){
-        $cartera = new Cartera();        
-        if(isset($_POST['cedula'])){
-        
+        $cartera = new Cartera();
         $cartera->__SET("cedula", $_POST['cedula']);
         $p = $cartera->consulta_pedido();
             
@@ -32,7 +32,6 @@ class CarteraController {
         }
             
         echo json_encode($p,JSON_FORCE_OBJECT);
-        }
     }
     
 }

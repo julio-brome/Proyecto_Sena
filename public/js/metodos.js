@@ -424,7 +424,7 @@ function consultar_cartera(consulta) {
         .done(function (respuesta) {
             console.log(JSON.stringify(respuesta));
             var contenido = jQuery.parseJSON(respuesta);
-            $('#nombre_cliente').html(contenido.nombre_cliente);
+            $('#nombre_cliente').html(contenido.nombres_cliente + " " + contenido.apellidos_cliente);
             $('#cartera').html(contenido.cartera);
             $('#disponible').html((contenido.cartera) - (contenido.valor_total));
             $('#pedido').html(contenido.valor_total);
@@ -626,13 +626,14 @@ function cambiar_usuario(consulta, consulta2) {
 }
 
 //Clientes
-function buscar_cliente(consulta) {
+function buscar_cliente(consulta,consulta2) {
     $.ajax({
             url: uri + '/cliente/tabla',
             type: 'POST',
             dataType: 'html',
             data: {
-                nombre: consulta
+                nombre: consulta,
+                ruta: consulta2
             },
         })
         .done(function (respuesta) {
@@ -654,7 +655,7 @@ function editar_cliente(consulta) {
         .done(function (respuesta) {
             var contenido = jQuery.parseJSON(respuesta);
             $('#id_cliente').val(contenido.id_cliente);
-            $('#nombres').val(contenido.nombres_cliente);
+            $('#nombres_c').val(contenido.nombres_cliente);
             $('#apellidos').val(contenido.apellidos_cliente);
             $('#tipo_doc').val(contenido.tipo_documento);
             $('#num_doc').val(contenido.numero_documento);
@@ -662,7 +663,7 @@ function editar_cliente(consulta) {
             $("#cartera_dis").val(contenido.cartera);
             $("#cel").val(contenido.celular);
             $("#select_r").val(contenido.id_ruta);
-            buscar_cliente($('#nombres').val());
+            buscar_cliente($('#nombres_c').val(),$('#select_r').val());
         })
         .fail(function () {
             console.log("error");
@@ -715,4 +716,46 @@ function limpiar(){
         .fail(function () {
             console.log("error");
         });
+}
+
+function ponerPrecio(elemento){
+    var valor = $("#ddlProducto").val();
+    var precio = $("#ddlProducto [value='"+valor+"']").attr("precio");
+    var cantidades = $("#ddlProducto [value='"+valor+"']").attr("cantidad");
+    $("#pPrecio").text(precio);
+    $("#cCantidades").text(cantidades);
+}
+
+function direccion(elemento){
+    var direcc = $("#ddlCliente").val();
+    var tel = $("#ddlCliente").val();        
+    var dato = $("#ddlCliente [value='"+direcc+"']").attr("direc");
+    $("#dDir").text(dato);
+    var dato2 = $("#ddlCliente [value='"+tel+"']").attr("tel");    
+    $("#tTel").text(dato2);
+
+
+}
+
+//ediar barrios
+function editarBarrios(consulta){
+    $.ajax({
+        url: uri+ '/Ruta/editar',
+        type:'POST',
+        datatype:'HTML',
+        data:{
+            id:consulta,
+        },
+         })
+         .done(function(datos){
+            var contenido= jQuery.parseJSON(datos);
+            $('#txxtId').val(contenido.id_ruta);
+            $('#txtNombre').val(contenido.nombre_ruta);
+            $('#ddlMuni').val(contenido.id_municipio);     
+             $('#ddlbarri').val(contenido.id_barrio);
+         })
+
+         .fail(function(){
+             console.log("error");
+         });
 }

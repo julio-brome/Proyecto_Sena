@@ -9,7 +9,7 @@ function menus() {
         $('#rutas').hide();
         $('#carteras').hide();
         $('#movimientos').hide();
-    } else if ($('#user_log').val() == "VENDEDOR") {
+    } else if ($('#user_log').val() == "VENTAS") {
         $('#compras').hide();
         $('#usuarios').hide();
         $('#rutas').hide();
@@ -17,6 +17,7 @@ function menus() {
         $('#proveedores').hide();
         $('#productos').hide();
         $('#movimientos').hide();
+        $('.children').hide();
     }
 }
 
@@ -48,9 +49,14 @@ function traer() {
 
     } else if ($('#carga').val() == "7") {
         $('#contenido').html("");
+        $('#contenido').load(uri + '/Pedido/consultaPedido', function () {
+            ponerPrecio();
+            direccion();  
+        });
 
     } else if ($('#carga').val() == "8") {
         $('#contenido').html("");
+        $('#contenido').load(uri + '/Ruta/index');
 
     } else if ($('#carga').val() == "9") {
         $('#contenido').html("");
@@ -110,10 +116,14 @@ $(document).on('click', '#carteras', function () {
 
 $(document).on('click', '#rutas', function () {
     $('#contenido').html("");
+    $('#contenido').load(uri + '/Ruta/index');
 });
 
 $(document).on('click', '#pedidos', function () {
     $('#contenido').html("");
+    $('#contenido').load(uri + '/Pedido/index');
+    ponerPrecio();
+    direccion();
 });
 
 $(document).on('click', '#compras', function () {
@@ -142,4 +152,42 @@ $(document).on('click', '#movimientos', function () {
     $('#contenido').load(uri + '/movimientos/index', function () {
         buscar_movimientos();
     });
+});
+//boton crear ruta
+$(document).on('click', '#cr', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri + '/Ruta/crear');
+
+});
+
+
+//boton editar ruta
+$(document).on('click', '#tedi', function () {
+    var id = $(this).val();
+    $('#form_editar').show();
+    $('#tabla_rutas').hide();
+    editarBarrios(id);
+
+$(document).on('click', '#crearPedido', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri + '/Pedido/index');
+    ponerPrecio();
+    direccion();
+
+});
+
+$(document).on('click', '#consultaPedido', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri + '/Pedido/consultaPedido');
+    ponerPrecio();
+    direccion();
+
+});
+
+//prueba click en olvido contraseña
+
+$(document).on('click', '#recu', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri + 'login/recover');
+
 });

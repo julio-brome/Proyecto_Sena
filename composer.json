@@ -14,7 +14,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "phpmailer/phpmailer": "dev-master"
+    },
     "autoload":
     {
         "psr-4":

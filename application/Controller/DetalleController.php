@@ -66,7 +66,6 @@ class DetalleController {
     
     public function Guardar(){
         $detalle = new Detalle();
-        if(isset($_POST['id']) && isset($_POST['idpro'])) {
         $detalle->__SET("producto", $_POST["id"]);
         $detalle->__SET("proveedor", $_POST["idpro"]);
             
@@ -81,29 +80,22 @@ class DetalleController {
          }else {
            echo "Existe";
         }
-        }else {
-            echo "No llegaron datos";
-        }
     }
     
     public function lista_detalle(){
         $detalle = new Detalle();
         $html="";
-        if(isset($_POST['id'])){
         $detalle->__SET("id", $_POST['id']);
         $p = $detalle->listar_detalle();
         
         foreach($p as $valor){
         $html.="<li>".$valor->nombre_empresa."</li>";
         }
-        }
-        
         echo ($html);
     }
     
     public function estado_detalle(){
         $detalle = new Detalle();
-        if(isset($_POST['id']) && isset($_POST['estado'])) {
         $detalle->__SET("id", $_POST["id"]);
         $detalle->__SET("estado", $_POST["estado"]);
             
@@ -114,6 +106,4 @@ class DetalleController {
             echo "no";
         }
     }
-    }
-    
 }

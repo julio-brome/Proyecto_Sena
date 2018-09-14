@@ -26,8 +26,9 @@ class Clientes extends Model {
     }
 
     public function listar(){
-        $stm = $this->db->prepare("CALL Listar_clientes(?)");
+        $stm = $this->db->prepare("CALL Listar_clientes(?,?)");
         $stm->bindParam(1,$this->nombres);
+        $stm->bindParam(2,$this->id_ruta);
         $stm->execute();
         return $stm->fetchAll();
     }
@@ -60,14 +61,14 @@ class Clientes extends Model {
     }
 
     public function modificar(){
-        $stm = $this->db->prepare("CALL Modificar_proveedor(?,?,?,?,?,?,?,?,?)");
+        $stm = $this->db->prepare("CALL Modificar_cliente(?,?,?,?,?,?,?,?,?)");
         $stm->bindParam(1,$this->id);
         $stm->bindParam(2,$this->nombres);
         $stm->bindParam(3,$this->apellidos);
         $stm->bindParam(4,$this->tipo_doc);
         $stm->bindParam(5,$this->numero_doc);
-        $stm->bindParam(6,$this->direc);
-        $stm->bindParam(7,$this->tel);
+        $stm->bindParam(6,$this->cartera);
+        $stm->bindParam(7,$this->direc);
         $stm->bindParam(8,$this->cel);
         $stm->bindParam(9,$this->id_ruta);
         return $stm->execute();
@@ -85,4 +86,12 @@ class Clientes extends Model {
         $stm->execute();
         return $stm->fetchAll();
     }
+
+    public function listar_cliente_pedido(){
+        $sql = "CALL SP_ListarCliente () ";
+        $stm = $this->db->prepare($sql);
+        $stm->execute();
+        return $stm->fetchAll();
+    }
+
 }

@@ -3,12 +3,15 @@
 namespace Mini\Controller;
 
 use Mini\Model\Clientes;
+use Mini\Model\Ruta;
 
 class ClienteController {
 
     public function index (){
         if(isset($_SESSION['USUARIO'])){
-            if($_SESSION['USUARIO']->rol_usuario== "ADMINISTRADOR" || $_SESSION['USUARIO']->rol_usuario== "BODEGA"){
+            if($_SESSION['USUARIO']->rol_usuario== "ADMINISTRADOR" || $_SESSION['USUARIO']->rol_usuario== "BODEGA" || $_SESSION['USUARIO']->rol_usuario == "VENTAS"){
+                $rutas = new Ruta();
+                $resultado = $rutas->listar();
             }else {
                 header("location: ".URL."Login/menu");
             }
@@ -22,11 +25,13 @@ class ClienteController {
         $cliente = new Clientes();
         $salida="";
 
-        if(isset($_POST['nombre'])){
+        if(isset($_POST['nombre']) && isset($_POST['ruta'])){
             $cliente->__SET("nombres", $_POST["nombre"]);
+            $cliente->__SET("id_ruta", $_POST["ruta"]);
             $lista = $cliente->listar();
         }else {
             $cliente->__SET("nombres", "");
+            $cliente->__SET("id_ruta", "");
             $lista = $cliente->listar();
         }
 
@@ -36,8 +41,8 @@ class ClienteController {
         $salida.="<table class='tabla_datos'>
         <thead>
             <tr>
-                <th>Nombre empresa</th>
-                <th>Nombre contacto</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
                 <th>Tipo documento</th>
                 <th>Numero documento</th>
                 <th>Direccion</th>
@@ -87,7 +92,7 @@ class ClienteController {
                     ".$texto."
                 </td>
                 <td>
-                    <button id='editar_cliente' value=".$value->id_cliente.">Modificar</button>
+                    <button class='modificar' id='editar_cliente' value=".$value->id_cliente.">Modificar</button>
                 </td>
                 <td>
                 <button style='background-color: ".$color." ;' id='Estado_cliente' value=".$value->id_cliente.">".$estados."</button>
@@ -121,6 +126,7 @@ class ClienteController {
         }
 
         $_SESSION['LOCAL']= "2";
+        header("location: ".URL."Login/menu");
     }
 
     public function editar(){
@@ -140,8 +146,8 @@ class ClienteController {
         $cliente->__SET("apellidos", $_POST['txtapellidos']);
         $cliente->__SET("tipo_doc", $_POST['txttipo_doc']);
         $cliente->__SET("numero_doc", $_POST['txtnumero_doc']);
+        $cliente->__SET("cartera", $_POST['cartera_dis']);
         $cliente->__SET("direc", $_POST['txtdc']);
-        $cliente->__SET("tel", $_POST['txttel']);
         $cliente->__SET("cel", $_POST['txtcel']);
         $cliente->__SET("id_ruta", $_POST['ide_r']);
 

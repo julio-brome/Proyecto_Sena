@@ -9,15 +9,15 @@ if(isset ($_SESSION['USUARIO'])){ ?>
     <link rel="stylesheet" href="<?= URL ?>/public/css/custom.css">
     <link rel="stylesheet" href="<?= URL ?>/public/css/alerta.css">
 </head>
-    
+
 <body>
-   <input id="carga" type="hidden" value="<?= $_SESSION['LOCAL']?>">
-   <?php if(isset($_SESSION['RESPUESTA'])): ?>
-   <input type="hidden" id ="org" value="<?= $_SESSION['RESPUESTA']?>">
-   <?php else: ?>
-   <input type="hidden" id ="org" value="">
-   <?php endif; ?>
-   <input id="user_log" type="hidden" value="<?= $_SESSION['USUARIO']->rol_usuario ?>">
+    <input id="carga" type="hidden" value="<?= $_SESSION['LOCAL']?>">
+    <?php if(isset($_SESSION['RESPUESTA'])): ?>
+    <input type="hidden" id="org" value="<?= $_SESSION['RESPUESTA']?>">
+    <?php else: ?>
+    <input type="hidden" id="org" value="">
+    <?php endif; ?>
+    <input id="user_log" type="hidden" value="<?= $_SESSION['USUARIO']->rol_usuario ?>">
     <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -26,7 +26,8 @@ if(isset ($_SESSION['USUARIO'])){ ?>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><?= $_SESSION['USUARIO']->rol_usuario;?></a>
+            <a class="navbar-brand" href="#">
+                <?= $_SESSION['USUARIO']->rol_usuario;?></a>
         </div>
         <div class="row-fluid">
             <div class="row" style="float: left; margin: 0 0 0 25px;">
@@ -48,30 +49,30 @@ if(isset ($_SESSION['USUARIO'])){ ?>
                     <img src="<?= URL ?>/public/img/logo.png" class="user-image img-responsive" />
                 </li>
                 <li>
-                    <a id="usuarios" href="#"><i class="fa fa-male fa-2x"></i> Usuarios</a>
+                    <a id="usuarios" href="#"><i class="fa fa-male fa-2x" style="color: silver"></i> Usuarios</a>
                 </li>
                 <li>
-                    <a id="clientes" href="#"><i class="fa fa-users fa-2x"></i> Clientes</a>
+                    <a id="clientes" href="#"><i class="fa fa-users fa-lg" style="color: silver"></i> Clientes</a>
                 </li>
                 <li>
-                    <a id="proveedores" href="#"><i class="fa fa-truck fa-2x"></i> Proveedores</a>
+                    <a id="proveedores" href="#"><i class="fa fa-truck fa-lg" style="color: silver"></i> Proveedores</a>
                 </li>
                 <li>
-                    <a id="productos" href="#"><i class="fa fa-gift fa-2x"></i> Productos</a>
-                <ul class="children">
-                    <li>
-                       <a id="agotados" href="#"><i class="fa fa-users fa-2x"></i> Productos agotados</a>
-                    </li>
-                    <li>
-                       <a id="categorias" href="#"><i class="fa fa-users fa-2x"></i> Categorias</a>
-                    </li>
-                </ul>
+                    <a id="productos" href="#"><i class="fa fa-gift fa-lg" style="color: silver"></i> Productos</a>
+                    <ul class="children">
+                        <li>
+                            <a id="agotados" href="#"><i class="fa fa-exclamation-triangle fa-lg" style="color: silver"></i> Productos agotados</a>
+                        </li>
+                        <li>
+                            <a id="categorias" href="#"><i class="fa fa-copy fa-lg" style="color: silver"></i> Categorias</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <a id="carteras" href="#"><i class="fa fa-money fa-2x"></i> Cartera</a>
+                    <a id="carteras" href="#"><i class="fa fa-money fa-lg" style="color: silver"></i> Cartera</a>
                 </li>
                 <li>
-                    <a id="compras" href="#"><i class="fa fa-shopping-cart fa-2x"></i> Compras</a>
+                    <a id="compras" href="#"><i class="fa fa-shopping-cart fa-lg" style="color: silver"></i> Compras</a>
                     <ul>
                     <li>
                     <a id="ReporteCompras" href="#"><i class="fa fa-shopping-cart fa-2x"></i> Reporte Compras</a>
@@ -79,13 +80,21 @@ if(isset ($_SESSION['USUARIO'])){ ?>
                     </ul>
                 </li>
                 <li>
-                    <a id="pedidos" href="#"><i class="fa fa-book fa-2x"></i> Pedidos</a>
+                    <a id="pedidos" href="#"><i class="fa fa-book fa-lg" style="color: silver"></i> Pedidos</a>
+                    <ul class="hijos_pedidos">
+                        <li>
+                            <a id="consultaPedido" href="#"><i class="fa fa-exclamation-triangle fa-lg" style="color: silver"></i>Consultar Pedidos</a>
+                        </li>
+                        <li>
+                            <a id="crearPedido" href="#"><i class="fa fa-copy fa-lg" style="color: silver"></i> Crear Pedidos</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <a id="rutas" href="#"><i class="fa fa-edit fa-2x"></i> Rutas </a>
+                    <a id="rutas" href="#"><i class="fas fa-route fa-lg" style="color: silver"></i> Rutas </a>
                 </li>
                 <li>
-                    <a id="movimientos" href="#"><i class="fa fa-edit fa-2x"></i> Movimientos </a>
+                    <a id="movimientos" href="#"><i class="fa fa-people-carry fa-lg" style="color: silver"></i> Movimientos </a>
                 </li>
             </ul>
 
@@ -127,7 +136,6 @@ if(isset ($_SESSION['USUARIO'])){ ?>
         <!-- /. PAGE WRAPPER  -->
     </div>
 </body>
-
 </html>
 <?php } else {
     header("location: ".URL."Login/index");

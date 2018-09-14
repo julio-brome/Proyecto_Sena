@@ -13,8 +13,8 @@ class UsuarioController {
         $usuario = new Usuario();
         $salida="";
 
-        if(isset($_POST['nombres'])){
-            $usuario->__SET("nombres_usuario", $_POST["nombres"]);
+        if(isset($_POST['nombre'])){
+            $usuario->__SET("nombres_usuario", $_POST["nombre"]);
             $lista = $usuario->listar();
         }else {
             $usuario->__SET("nombres_usuario", "");
@@ -78,7 +78,7 @@ class UsuarioController {
                     ".$texto."
                 </td>
                 <td>
-                    <button id='editar_usuario' value=".$value->id_usuario.">Modificar</button>
+                    <button class='modificar' id='editar_usuario' value=".$value->id_usuario.">Modificar</button>
                 </td>
                 <td>
                 <button style='background-color: ".$color." ;' id='Estado_usuario' value=".$value->id_usuario.">".$estados."</button>

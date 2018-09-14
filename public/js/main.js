@@ -99,6 +99,40 @@ $(document).on('keyup', '#nombre_em', function () {
     }
 });
 
+//buscar cliente
+$(document).on('keyup', '#nombres_c', function () {
+    var valor = $('#nombres_c').val();
+    var valor2 = $('#select_r').val();
+
+    if (valor != "" || valor2 != "") {
+        buscar_cliente(valor,valor2);
+    } else {
+        buscar_cliente();
+    }
+});
+
+$(document).on('change', '#select_r', function () {
+    var valor = $('#nombres_c').val();
+    var valor2 = $('#select_r').val();
+
+    if (valor != "" || valor2 != "") {
+        buscar_cliente(valor,valor2);
+    } else {
+        buscar_cliente();
+    }
+});
+
+//buscar usuario
+$(document).on('keyup', '#nombres', function () {
+    var valor = $('#nombres').val();
+
+    if (valor != "") {
+        buscar_usuario(valor);
+    } else {
+        buscar_usuario();
+    }
+});
+
 //Buscar producto
 $(document).on('keyup', '#nombre_p', function () {
     var valor = $('#nombre_p').val();
@@ -144,6 +178,7 @@ $(document).on('click', '#añadir', function () {
 $(document).on('click', '#cancelar', function () {
     $('#añadir').show();
     $('#modificar_p').hide();
+    $('select').val('').trigger('change');
     buscar_producto();
 });
 
@@ -246,6 +281,7 @@ $(document).on('click', '#modificar_p', function () {
 
 //Form detalle productos
 $(document).on('click', '#limpiar_d', function () {
+    $('select').val('').trigger('change');
     buscar_detalle();
 });
 
@@ -331,9 +367,6 @@ $(document).on('change', '#cedula', function () {
 
     if (cedula != "") {
         consultar_cartera(cedula);
-    } else {
-        mensaje = "Ingrese la cedula del cliente";
-        ver_fail();
     }
 });
 
@@ -342,6 +375,7 @@ $(document).on('click', '#limpiar_c', function () {
     $('#cartera').html("0");
     $('#disponible').html("0");
     $('#pedido').html("0");
+    $('select').val('').trigger('change');
 });
 
 //Form proveedores
@@ -370,6 +404,7 @@ $(document).on('click', '#editar_proveedor', function () {
 $(document).on('click', '#cancelar_mod', function () {
     $('#modificar_proveedor').hide();
     $('#guardar_proveedor').show();
+    $('select').val('').trigger('change');
     buscar_proveedor();
     return false;
 });
@@ -400,6 +435,7 @@ $(document).on('click', '#editar_cliente', function () {
 $(document).on('click', '#can_mod', function () {
     $('#modificar_cliente').hide();
     $('#guardar_cliente').show();
+    $('select').val('').trigger('change');
     buscar_cliente();
 });
 
@@ -429,13 +465,14 @@ $(document).on('click', '#editar_usuario', function () {
 $(document).on('click', '#cancelar_mod', function () {
     $('#modificar_usuario').hide();
     $('#guardar_usuario').show();
-    $('#registro_pre').trigger("reset"); // que es esta linea?
+    $('#registro_pre').trigger("reset");
     buscar_usuario();
     return false;
 });
 
 //Form movimientos
-$(document).on('click','#reset_mov', function(){
+$(document).on('click', '#reset_mov', function () {
+    $('select').val('').trigger('change');
     buscar_movimientos();
 });
 
@@ -476,3 +513,21 @@ $(document).on('click', '#atras_p', function () {
     buscar_detalle();
     return false;
 });
+
+//Exportar a excel
+$(document).on('click', '#enviar', function () {
+    $('table button').remove();
+    descargarExcel();
+    return false;
+});
+
+//buscar rutas
+$(document).ready( function () {
+    $('#rruta').DataTable();
+} );
+
+$(document).on('change','#ddlMuni',function(){
+    //var valor = $('#ddlMuni'.val());
+    var mun = $('#ddlMuni').val();
+    buscarBarrios($(this).val());
+})
