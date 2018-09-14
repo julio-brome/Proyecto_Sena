@@ -164,3 +164,10 @@ $(document).on('click', '#consultaPedido', function () {
     direccion();
 
 });
+
+//prueba click en olvido contraseña
+
+$(document).on('click', '#recu', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri + 'login/recover');
+});
