@@ -44,6 +44,7 @@ function traer() {
 
     } else if ($('#carga').val() == "6") {
         $('#contenido').html("");
+        $('#contenido').load(uri+'/compras/crear');
 
     } else if ($('#carga').val() == "7") {
         $('#contenido').html("");
@@ -117,6 +118,16 @@ $(document).on('click', '#pedidos', function () {
 
 $(document).on('click', '#compras', function () {
     $('#contenido').html("");
+    $('#contenido').load(uri+'/compras/crear', function () {
+        listar_proveedor();
+    });
+});
+
+$(document).on('click', '#ReporteCompras', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri+'/compras/index', function () {
+        ConsultarDetalle();
+    });
 });
 
 $(document).on('click', '#agotados', function () {
