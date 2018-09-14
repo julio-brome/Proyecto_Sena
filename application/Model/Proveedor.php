@@ -84,9 +84,7 @@ class Proveedor extends Model {
     }
 
     public function listar_proveedorProducto (){
-        $sql = "SELECT * FROM proveedor INNER JOIN detalle_producto_proveedor on proveedor.id_proveedor = detalle_producto_proveedor.id_proveedor
-        INNER JOIN producto on detalle_producto_proveedor.id_producto = producto.id_producto
-        inner join categoria_producto on producto.id_categoria = categoria_producto.id_categoria where producto.estado_producto = 1 and proveedor.id_proveedor = ?";
+        $sql = "CALL SP_listarProveedorProducto(?)";
         $stm = $this->db->prepare($sql);
         $stm->bindParam(1, $this->id);
         $stm->execute();
