@@ -82,4 +82,13 @@ class Proveedor extends Model {
         $stm->execute();
         return $stm->fetchAll();
     }
+
+    public function listar_proveedorProducto (){
+        $sql = "CALL SP_listarProveedorProducto(?)";
+        $stm = $this->db->prepare($sql);
+        $stm->bindParam(1, $this->id);
+        $stm->execute();
+        return $stm->fetchAll();
+        }
+
 }
