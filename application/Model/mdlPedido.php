@@ -58,4 +58,12 @@ class mdlPedido extends Model {
         return $stm->fetch();
     }
 
+       public function consulta_detalle(){
+        $sql = "SELECT * FROM detalle_pedido_producto WHERE id = ?";
+        $stm = $this->db->prepare($sql);
+        $stm->bindParam(1, $this->id_pedido);
+        return $stm->execute();
+        return $stm->fetch();
+        
+    }
 }

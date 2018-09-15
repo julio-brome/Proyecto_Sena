@@ -12,6 +12,8 @@
 <script type="text/javascript" src="<?= URL?>/public/js/alertas.js"></script>
 <script type="text/javascript" src="<?= URL?>/public/js/load.js"></script>
 <script type="text/javascript" src="<?= URL?>/public/js/Exportar.js"></script>
+
+
 </body>
 
 </html>

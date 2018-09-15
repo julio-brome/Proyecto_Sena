@@ -27,16 +27,64 @@
             require APP.'view/Crear_pedido.php';
             
         } 
-
-        public function consultaPedido(){
+        public function ConsultarDetalleP($id){
+            $pedido = new mdlConsultaPedido();
+            $pedidos->__SET("id_pedido",$id);         
+            $detallepedido = $pedidos->ConsultarPorId();
+            echo json_encode($detallepedido);
+        }
+        public function detalle($id){
 
             $pedido = new mdlConsultaPedido();
-            $pedidos = $pedido->listar();
+            $pedidos->__SET("id_pedido", $id);
+            $registro = $pedidos->detalle();
+            echo json_encode($registro);
+            
 
+                                  
+            
+            
+        } 
+        
+        public function cambiar($id, $estado){
+
+            $pedido = new mdlConsultaPedido();
+            $pedido->__SET("id", $id);
+            $pedido->__SET("estado", $estado);
+            echo $pedido->cambiar_estado()?"0":"1";
+          
+        } 
+
+        public function consulta_Pedido(){
+            
+             $cliente = new Clientes();
+            $clientes = $cliente->listar_cliente_pedido();
+            $pedido = new mdlConsultaPedido();
+            $pedidos = $pedido->listar_maestro();
                                   
             require APP.'view/consultaPedido.php';
             
-        } 
+        }
+        public function ConsultarpedidoParametros(){
+
+            $idcliente = $_GET["idcliente"];
+            $fechaInicio = $_GET["fechaInicio"];
+            $fechaFin = $_GET["fechaFin"];
+            $cp = new mdlConsultaPedido();
+            if($idcliente == ""){
+                $idcliente = "%";
+            }
+            if($fechaInicio == null){
+                $fechaInicio = "2017-01-01";
+            }
+            
+            if($fechaFin == null){
+                $fechaFin = "2020-01-01";
+            }
+            $consultapedidos = $cp->listar($idcliente, $fechaInicio, $fechaFin);
+        
+            echo json_encode($consultapedidos);
+        }
         
         public function guardar(){
 
@@ -80,9 +128,9 @@
                     
                 }
                 header("location: ".URL."Login/menu");
-            }
- 
         }
+ 
+    }
             
               
         
