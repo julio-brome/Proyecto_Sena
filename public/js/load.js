@@ -130,8 +130,6 @@ $(document).on('click', '#compras', function () {
 
 $(document).on('click', '#ReporteCompras', function () {
     $('#contenido').html("");
-<<<<<<< HEAD
-=======
     $('#contenido').load(uri+'/compras/crear', function () {
         listar_proveedor();
     });
@@ -139,7 +137,6 @@ $(document).on('click', '#ReporteCompras', function () {
 
 $(document).on('click', '#ReporteCompras', function () {
     $('#contenido').html("");
->>>>>>> 67c666964bc7c56dcdee616953537685b39f3ecf
     $('#contenido').load(uri+'/compras/index', function () {
         ConsultarDetalle();
     });

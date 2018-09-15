@@ -717,78 +717,6 @@ function limpiar(){
             console.log("error");
         });
 }
-<<<<<<< HEAD
-//ajax consulta pedido
-function ConsultarDetalle(id) {
-    $.ajax({
-      Type: "get",
-      dataType: "json",
-      url: uri + "/pedido/ConsultarDetalleP/" + id
-      
-    }).done(detallepedido => {
-      if (detallepedido.length > 0) {
-        $("#detallebodys").empty();
-  
-        detallepedido.forEach((e, i) => {
-          $("#txtFecha").val(e.fecha_de_creacion);
-          $("#txtCliente").val(e.nombres_cliente);
-          $("#lbtotall").html(e.valor_total);
-  
-          $("#detallebodys").append(
-            `<tr>
-              <td>${e.nombre_producto}</td>
-              <td>${e.precio_venta}</td>
-              <td>${e.cantidad}</td>
-              <td>${e.subtotal}</td>
-            </tr>`
-          );
-        });
-  
-        $("#Modal_Pedido").modal();
-      } else {
-        alert("no tiene pedidos");
-      }
-    });
-  }
-  
-  function ConsultarPed() {
-    $.ajax({
-      Type: "get",
-      dataType: "json",
-      url: uri + "pedido/ConsultarpedidoParametros",
-      data: {
-        idcliente: $("#idcliente").val(),
-        fechaInicio: $("#txtfechaInicio").val(),
-        fechaFin: $("#txtfechaFin").val()
-      }
-    }).done(consultapedidos => {
-      if (consultapedidos.length > 0) {
-        $("#ped").empty();
-  
-        consultapedidos.forEach((e, i) => {
-          $("#ped").append(
-            `<tr>
-              <td>${e.fecha_de_creacion}</td>
-              <td>${e.nombres_cliente+"     "+e.apellidos_cliente}</td>
-              <td>${e.valor_total}</td>
-              <td>${e.estado_pedido}</td>
-
-              <td>
-              <a class="btn btn-primary" onclick="ConsultarDetalle('${
-                e.id_cliente_pedido
-              }')">Ver Detalle</a>
-           
-              </td>
-              </tr>`
-          );
-        });
-      } else {
-        alert("no hay pedidos para ese rango seleccionado");
-      }
-    });
-  }
-  
-=======
 
 function ponerPrecio(elemento){
     var valor = $("#ddlProducto").val();
@@ -831,4 +759,3 @@ function editarBarrios(consulta){
              console.log("error");
          });
 }
->>>>>>> 67c666964bc7c56dcdee616953537685b39f3ecf
