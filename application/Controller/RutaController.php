@@ -51,10 +51,11 @@ class RutaController{
         $rutas = new Ruta();
         $rutas->__SET("id_ruta", $_POST['id']);
         $r = $rutas->editar();
-        $Municipio = new municipio();
-        $municipios = $Municipio->listar();
+        //$Municipio = new municipio();
+        //$municipios = $Municipio->listarMunicipio();
 
-        require APP."view/ruta/index.php";
+        //require APP."view/ruta/index.php";
+        echo json_encode($r);
     }
     public function guardar(){
          $rutas = new Ruta();
