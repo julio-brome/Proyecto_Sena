@@ -768,7 +768,7 @@ function ConsultarDetalle(id) {
           $("#ped").append(
             `<tr>
               <td>${e.fecha_de_creacion}</td>
-              <td>${e.nombres_cliente+" "+e.apellidos_cliente}</td>
+              <td>${e.nombres_cliente+"     "+e.apellidos_cliente}</td>
               <td>${e.valor_total}</td>
               <td>${e.estado_pedido}</td>
 

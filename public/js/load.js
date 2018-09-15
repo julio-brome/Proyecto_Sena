@@ -45,6 +45,7 @@ function traer() {
 
     } else if ($('#carga').val() == "6") {
         $('#contenido').html("");
+        $('#contenido').load(uri+'/compras/crear');
 
     } else if ($('#carga').val() == "7") {
         $('#contenido').html("");
@@ -122,6 +123,16 @@ $(document).on('click', '#rutas', function () {
 
 $(document).on('click', '#compras', function () {
     $('#contenido').html("");
+    $('#contenido').load(uri+'/compras/crear', function () {
+        listar_proveedor();
+    });
+});
+
+$(document).on('click', '#ReporteCompras', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri+'/compras/index', function () {
+        ConsultarDetalle();
+    });
 });
 
 $(document).on('click', '#agotados', function () {
@@ -144,6 +155,15 @@ $(document).on('click', '#cr', function () {
 
 });
 
+
+//boton editar ruta
+$(document).on('click', '#tedi', function () {
+    var id = $(this).val();
+    $('#form_editar').show();
+    $('#tabla_rutas').hide();
+    editarBarrios(id);
+});
+
 $(document).on('click', '#crearPedido', function () {
     $('#contenido').html("");
     $('#contenido').load(uri + '/Pedido/index');
@@ -159,5 +179,13 @@ $(document).on('click', '#consultaPedido', function () {
     ConsultarDetalle();
     });
     
+
+});
+
+//prueba click en olvido contraseña
+
+$(document).on('click', '#recu', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri + 'login/recover');
 
 });

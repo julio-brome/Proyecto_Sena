@@ -11,7 +11,12 @@ class RutaController{
     public function index(){
 
         $rutas = new Ruta();
-        $rutas = $rutas->listar();
+        $ruta = $rutas->listar();
+
+        $rut = $rutas->listarMunicipio();
+        
+    
+        $ba = $rutas->listar_municipio_barrioo();
         //require APP."view/_templates/header.php";
         require APP."view/Ruta/index.php";
         //require APP."view/_templates/footer.php";
@@ -23,11 +28,10 @@ class RutaController{
         //$Municipio = new municipio();
         //$municipios = $Municipio->listar();
         
-        $rutas = new Ruta();
-        $rut = $rutas->listarMunicipio();
         
-    
         $rutas = new Ruta();
+     
+        $rut = $rutas->listarMunicipio();
         $ba = $rutas->listar_municipio_barrioo();
 
         //$rutas = new Ruta();
@@ -43,14 +47,14 @@ class RutaController{
 
 
 
-    public function editar($id_ruta){
-        $rutas = new ruta();
-        $rutas->__SET("id_ruta", $id_ruta);
+    public function editar(){
+        $rutas = new Ruta();
+        $rutas->__SET("id_ruta", $_POST['id']);
         $r = $rutas->editar();
         $Municipio = new municipio();
         $municipios = $Municipio->listar();
 
-        require APP."view/ruta/editar.php";
+        require APP."view/ruta/index.php";
     }
     public function guardar(){
          $rutas = new Ruta();
@@ -77,12 +81,13 @@ class RutaController{
         
 
         if($rutas->cambiar_estado()){
-            $_SESSION["mensaje"] = "Se cambio";
+            $_SESSION["RESPUESTA"] = "Se cambio";
         } else {
-            $_SESSION["mensaje"] = "No se cambio";
+            $_SESSION["RESPUESTA"] = "No se cambio";
         }
 
-        header("location: ".URL."ruta/index"); 
+        $_SESSION["LOCAL"] = "8";
+        header("location: ".URL."Login/menu"); 
        }
 
        public function modificarr(){
@@ -97,12 +102,12 @@ class RutaController{
         // $ruta->crear();
 
        if($rutas->modificar()){
-           $_SESSION["mensaje"] = "Modificado";
+           $_SESSION["RESPUESTA"] = "Modificado";
        } else {
-           $_SESSION["mensaje"] = "No se modificado";
+           $_SESSION["RESPUESTA"] = "No se modificado";
        }
-     
-       header("location: ".URL."ruta/index"); 
+       $_SESSION["LOCAL"] = "8";
+        header("location: ".URL."Login/menu"); 
    }
 
    public function consultar_barrio(){
