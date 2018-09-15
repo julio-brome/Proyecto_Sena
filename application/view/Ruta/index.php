@@ -13,7 +13,7 @@
     <div class="col">
     <div class="form-group">
        <label for="">Municipio</label>
-       <select class="form-control" name="ddlMuni" id="ddlMuni" >
+       <select class="form-contro1" name="ddlMuni" id="ddlMuni" >
           <option value="option">Seleccione</option>
           <?php foreach($rut as $value): ?>
             <option value="<?= $value->id_municipio ?>"><?= $value->nombre_municipio?></option>
@@ -28,9 +28,7 @@
     <div class="form-group">
        <label for="">Barrio </label>
        <select class="form-contro2" name="ddlbarri" id="ddlbarri">
-       <option value="option">Seleccione </option>
-     
-
+            <option value="option">Seleccione </option>
        </select>
     </div>
     </div>
@@ -47,7 +45,11 @@
      <table class="table" id="rruta">
        <thead>
         <tr>
-
+        <th>Nombre de ruta</th>
+        <th>Barrio</th>
+        <th>Municipio</th>
+        <th>Estado</th>
+        <th>Opciones</th>
         </tr>
        </thead>
        <tbody>
@@ -75,5 +77,6 @@
        </tbody>
      </table>
      <input class="succes" id="cr" type="submit" value="Crear Ruta">
+     <input type="button" value="Descargar a excel" id="enviar">
 </div>
 
