@@ -82,9 +82,9 @@ class RutaController{
         
 
         if($rutas->cambiar_estado()){
-            $_SESSION["RESPUESTA"] = "Se cambio";
+            $_SESSION["RESPUESTA"] = "Se cambió";
         } else {
-            $_SESSION["RESPUESTA"] = "No se cambio";
+            $_SESSION["RESPUESTA"] = "No se cambió";
         }
 
         $_SESSION["LOCAL"] = "8";
@@ -105,7 +105,7 @@ class RutaController{
        if($rutas->modificar()){
            $_SESSION["RESPUESTA"] = "Modificado";
        } else {
-           $_SESSION["RESPUESTA"] = "No se modificado";
+           $_SESSION["RESPUESTA"] = "No se modifico";
        }
        $_SESSION["LOCAL"] = "8";
         header("location: ".URL."Login/menu"); 

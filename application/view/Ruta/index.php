@@ -1,7 +1,9 @@
 <div id="form_editar" class="container">
     <form action="<?= URL ?>ruta/modificarr" method="post">
     <input type="hidden" name="txxtId" id="txxtId" >
+
     <div class="row">
+        
     <div class="col">
     <div class="form-group">
        <label for="">Nombre de ruta</label>
