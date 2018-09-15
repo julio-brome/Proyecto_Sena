@@ -130,6 +130,16 @@ $(document).on('click', '#compras', function () {
 
 $(document).on('click', '#ReporteCompras', function () {
     $('#contenido').html("");
+<<<<<<< HEAD
+=======
+    $('#contenido').load(uri+'/compras/crear', function () {
+        listar_proveedor();
+    });
+});
+
+$(document).on('click', '#ReporteCompras', function () {
+    $('#contenido').html("");
+>>>>>>> 67c666964bc7c56dcdee616953537685b39f3ecf
     $('#contenido').load(uri+'/compras/index', function () {
         ConsultarDetalle();
     });
@@ -179,6 +189,14 @@ $(document).on('click', '#consultaPedido', function () {
     ConsultarDetalle();
     });
     
+
+});
+
+//prueba click en olvido contraseña
+
+$(document).on('click', '#recu', function () {
+    $('#contenido').html("");
+    $('#contenido').load(uri + 'login/recover');
 
 });
 

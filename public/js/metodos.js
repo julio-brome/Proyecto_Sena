@@ -717,6 +717,7 @@ function limpiar(){
             console.log("error");
         });
 }
+<<<<<<< HEAD
 //ajax consulta pedido
 function ConsultarDetalle(id) {
     $.ajax({
@@ -787,3 +788,47 @@ function ConsultarDetalle(id) {
     });
   }
   
+=======
+
+function ponerPrecio(elemento){
+    var valor = $("#ddlProducto").val();
+    var precio = $("#ddlProducto [value='"+valor+"']").attr("precio");
+    var cantidades = $("#ddlProducto [value='"+valor+"']").attr("cantidad");
+    $("#pPrecio").text(precio);
+    $("#cCantidades").text(cantidades);
+}
+
+function direccion(elemento){
+    var direcc = $("#ddlCliente").val();
+    var tel = $("#ddlCliente").val();        
+    var dato = $("#ddlCliente [value='"+direcc+"']").attr("direc");
+    $("#dDir").text(dato);
+    var dato2 = $("#ddlCliente [value='"+tel+"']").attr("tel");    
+    $("#tTel").text(dato2);
+
+
+}
+
+//ediar barrios
+function editarBarrios(consulta){
+    $.ajax({
+        url: uri+ '/Ruta/editar',
+        type:'POST',
+        datatype:'HTML',
+        data:{
+            id:consulta,
+        },
+         })
+         .done(function(datos){
+            var contenido= jQuery.parseJSON(datos);
+            $('#txxtId').val(contenido.id_ruta);
+            $('#txtNombre').val(contenido.nombre_ruta);
+            $('#ddlMuni').val(contenido.id_municipio);     
+             $('#ddlbarri').val(contenido.id_barrio);
+         })
+
+         .fail(function(){
+             console.log("error");
+         });
+}
+>>>>>>> 67c666964bc7c56dcdee616953537685b39f3ecf
