@@ -717,45 +717,73 @@ function limpiar(){
             console.log("error");
         });
 }
-
-function ponerPrecio(elemento){
-    var valor = $("#ddlProducto").val();
-    var precio = $("#ddlProducto [value='"+valor+"']").attr("precio");
-    var cantidades = $("#ddlProducto [value='"+valor+"']").attr("cantidad");
-    $("#pPrecio").text(precio);
-    $("#cCantidades").text(cantidades);
-}
-
-function direccion(elemento){
-    var direcc = $("#ddlCliente").val();
-    var tel = $("#ddlCliente").val();        
-    var dato = $("#ddlCliente [value='"+direcc+"']").attr("direc");
-    $("#dDir").text(dato);
-    var dato2 = $("#ddlCliente [value='"+tel+"']").attr("tel");    
-    $("#tTel").text(dato2);
-
-
-}
-
-//ediar barrios
-function editarBarrios(consulta){
+//ajax consulta pedido
+function ConsultarDetalle(id) {
     $.ajax({
-        url: uri+ '/Ruta/editar',
-        type:'POST',
-        datatype:'HTML',
-        data:{
-            id:consulta,
-        },
-         })
-         .done(function(datos){
-            var contenido= jQuery.parseJSON(datos);
-            $('#txxtId').val(contenido.id_ruta);
-            $('#txtNombre').val(contenido.nombre_ruta);
-            $('#ddlMuni').val(contenido.id_municipio);     
-             $('#ddlbarri').val(contenido.id_barrio);
-         })
+      Type: "get",
+      dataType: "json",
+      url: uri + "/pedido/ConsultarDetalleP/" + id
+      
+    }).done(detallepedido => {
+      if (detallepedido.length > 0) {
+        $("#detallebodys").empty();
+  
+        detallepedido.forEach((e, i) => {
+          $("#txtFecha").val(e.fecha_de_creacion);
+          $("#txtCliente").val(e.nombres_cliente);
+          $("#lbtotall").html(e.valor_total);
+  
+          $("#detallebodys").append(
+            `<tr>
+              <td>${e.nombre_producto}</td>
+              <td>${e.precio_venta}</td>
+              <td>${e.cantidad}</td>
+              <td>${e.subtotal}</td>
+            </tr>`
+          );
+        });
+  
+        $("#Modal_Pedido").modal();
+      } else {
+        alert("no tiene pedidos");
+      }
+    });
+  }
+  
+  function ConsultarPed() {
+    $.ajax({
+      Type: "get",
+      dataType: "json",
+      url: uri + "pedido/ConsultarpedidoParametros",
+      data: {
+        idcliente: $("#idcliente").val(),
+        fechaInicio: $("#txtfechaInicio").val(),
+        fechaFin: $("#txtfechaFin").val()
+      }
+    }).done(consultapedidos => {
+      if (consultapedidos.length > 0) {
+        $("#ped").empty();
+  
+        consultapedidos.forEach((e, i) => {
+          $("#ped").append(
+            `<tr>
+              <td>${e.fecha_de_creacion}</td>
+              <td>${e.nombres_cliente+" "+e.apellidos_cliente}</td>
+              <td>${e.valor_total}</td>
+              <td>${e.estado_pedido}</td>
 
-         .fail(function(){
-             console.log("error");
-         });
-}
+              <td>
+              <a class="btn btn-primary" onclick="ConsultarDetalle('${
+                e.id_cliente_pedido
+              }')">Ver Detalle</a>
+           
+              </td>
+              </tr>`
+          );
+        });
+      } else {
+        alert("no hay pedidos para ese rango seleccionado");
+      }
+    });
+  }
+  
