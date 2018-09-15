@@ -167,6 +167,7 @@ $(document).on('click', '#tedi', function () {
     $('#form_editar').show();
     $('#tabla_rutas').hide();
     editarBarrios(id);
+});
 
 $(document).on('click', '#crearPedido', function () {
     $('#contenido').html("");
